@@ -17,11 +17,6 @@ export default function Footer() {
     <a  href="https://www.facebook.com/"><img src="images/iconofb.png" alt="facebook" /></a>
     <a  href="https://twitter.com/?lang=es"><img src="images/iconotwi.png" alt="twitter" /></a>
     </div>
-
-    
-    
-    
-    
     
     </div>
 

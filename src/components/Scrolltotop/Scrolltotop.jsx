@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from 'react'
 
-
 export default function Scrolltotop() {
 
   const [scrolltotop,setScrolltotop] = useState(false)
-
 
 useEffect(()=>{
   window.addEventListener("scroll",()=>{
