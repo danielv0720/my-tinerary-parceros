@@ -1,38 +1,421 @@
-.App {
+/* .App {
   text-align: center;
+} */
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.container-title {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  margin-right: -400px;
+  z-index: 11;
+  padding: 10px;
+
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* .title-cover {
+  
+} */
+
+
+
+
+.hidden {
+  overflow: hidden;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.img-cover {
+  width: 1100px;
+  height: 100%;
+  z-index: 1;
+
+}
+
+.img-link {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+}
+
+.title-question {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.buttons-redirect {
+  padding: 5%;
+}
+
+.btn {
+  padding: 10px;
+  background-color: brown;
+  color: aliceblue;
+  text-align: center;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.btn:hover {
+  background-color:rgba(19, 16, 16, 0.712);;
+}
+
+.container-home1 {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 10px;
+  background-color: #8BC6EC;
+background-image: linear-gradient(135deg, #8BC6EC 0%, #9599E2 100%);
+
+}
+
+.cover {
+  width: 100%;
+  height: 90%;
+/*   margin-top: -5px; */
+}
+
+.cities {
+  width: 100%;
+  height: 800px;
+}
+
+.nav-container {
+  padding: 5px;
+  height: 100%;
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+}
+
+.icon-menu {
+  display: none;
+  width: 30px;
+  height: 30px;
+}
+
+.title-nav {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.nav-link:hover  {
+  border-bottom: solid 3px rgb(44, 43, 43);
+}
+
+.font {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.red-light {
+  color: rgb(160, 60, 60);
+}
+
+.dark-light {
+  color: rgb(54, 54, 54);
+}
+
+.white {
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.nav-list {
+  /* height: 30px; */
+  height: inherit;
+  display: flex;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.w-100 {
+  width: 100%;
+}
+
+.w-150p {
+  width: 150px;
+}
+
+.h-100vh {
+  height: 100vh;
+}
+
+
+.p-10{
+  padding: 10px;
+}
+
+.p-20 {
+  padding: 20px;
+}
+.p-5 {
+  padding: 5px;
+}
+
+.py-10 {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.gap-5 {
+  gap: 5px;
+}
+
+.gap-15 {
+  gap: 15px;
+}
+
+.top-0 {
+  margin-top: 0;
+}
+
+.list-style__none {
+  list-style: none;
+}
+
+.text-decoration__none {
+  text-decoration: none;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.row {
+  flex-direction: row;
+}
+
+.flex-grow {
+  flex-grow: 1;
+}
+
+.wrap {
+  flex-wrap: wrap;
+}
+
+.nav {
+  height: 40px;
+  width: 100%;
+}
+
+.center {
+  justify-content: center;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.text-center {
+ text-align: center;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+.space-around {
+  justify-content: space-around;
+}
+
+.space-evenly {
+  justify-content: space-evenly;
+}
+
+.shadow1 {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+.shadow2 {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.shadow3 {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.size-23p {
+  font-size: 23px;
+}
+.size-20p {
+  font-size: 20px;
+}
+
+
+.size-30p{
+  font-size: 30px;
+}
+
+.size-35p {
+  font-size: 35px;
+}
+
+.fw-400 {
+  font-weight: 400;
+}
+
+.fw-500 {
+  font-weight: 500;
+}
+.fw-600 {
+  font-weight: 600;
+}
+
+.logo-nav {
+  height: 30px;
+  width: 34px;
+  padding: 10px;
+}
+
+.border-test {
+  border: solid black;
+}
+
+.border-test-green {
+  border: solid green;
+}
+
+@media screen and (max-width: 1068px){
+  .container-title {
+    margin-right: -800px;
   }
-  to {
-    transform: rotate(360deg);
+
+}
+
+@media screen and (max-width: 876px){
+  .img-cover {
+    width: 900px;
   }
+
+}
+
+
+
+
+@media screen and (max-width: 774px){
+  .img-cover {
+    width: 750px;
+    position: relative;
+
+  }
+
+
+  .paragraph-cover {
+    width: 65%;
+
+  }
+
+  .container-title {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 674px){
+  .img-cover {
+    width: 700px;
+    position: relative;
+    
+ 
+  }
+  .container-title {
+    margin-left: 5px;
+    margin-right: -646px;
+  }
+  .title-cover {
+    background-color: rgba(158, 228, 87, 0.521);
+  }
+
+  .paragraph-cover {
+    background-color:  rgba(158, 228, 87, 0.521);
+  }
+
+ 
+ 
+}
+
+@media screen and (max-width: 642px){
+  .img-cover {
+    width: 630px;
+  }
+
+  .paragraph-cover {
+    width: 70%;
+  }
+}
+
+.nav-mobile {
+  background-color: darkcyan;
+  display: block;
+  pad: 5px;
+  width: 100%;
+  position: absolute;
+  z-index: 111;
+  transform: translateY(120px);
+  transition: all 0.5s ease-in;
+}
+
+
+
+@media screen and (max-width: 588px) {
+  .nav-container {
+    display: none;
+  }
+  .icon-menu {
+    display: block;
+    cursor: pointer;
+  }
+  .nav-list {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 456px){
+  .buttons-redirect {
+    flex-direction: column;
+  }
+  .img-btn {
+    width: 400px;
+  }
+  .img-link,.btn {
+    width: 100%;
+  } 
+  .btn {
+    padding: 10px 0 10px 0;
+   /*  height: 30px;
+    padd */
+  }
+  
+}
+
+@media screen and (max-width: 488px) {
+  .img-cover {
+    display: none;
+  }
+  .container-title {
+    margin: 0;
+  }
+
+  .title-cover, .paragraph-cover {
+    background: none;
+    color: azure;
+  }
+  .cover {
+    background: linear-gradient(rgba(121, 55, 68, 0.397), rgba(220, 20, 60, 0.384)) ,url("https://media.istockphoto.com/photos/map-with-stick-pins-travel-itinerary-picture-id542818352?k=20&m=542818352&s=612x612&w=0&h=m3S2n4lwkQg_JJz-OKpFpyRotCYR_eCTDQ8CyGzyZO4=");
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+}
+
+@media screen and (max-width: 443px){
+  .buttons-redirect {
+    padding: 0;
+    align-items: center;
+  }
+  .img-btn {
+    width: 95%;
+  }
+
 }
