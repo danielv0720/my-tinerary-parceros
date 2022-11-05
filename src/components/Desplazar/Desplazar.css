@@ -1,0 +1,19 @@
+.flechad{
+  width: 60px;
+
+ 
+}
+.flechai{
+  width: 60px;
+}
+
+
+.container_flecha1{
+  position: absolute;
+  width: 100%;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+ 
+
+}

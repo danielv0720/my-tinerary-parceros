@@ -1,0 +1,46 @@
+[
+  {
+    "id": "admin1",
+    "name":"Eric",
+    "lastName":"Rodriguez",
+    "age":23,
+    "email":"feric.rodriguez@gmail.com",
+    "password":"Chau6789",
+    "code":"ch3536",
+    "verified":true,
+    "logged":true
+  },
+  {
+    "id": "admin2",
+    "name":"Ignacio",
+    "lastName":"Borraz",
+    "age":32,
+    "email":"ignacioborraz@hotmail.com",
+    "password":"Burger32",
+    "code":"ch3537",
+    "verified":true,
+    "logged":true
+  },
+  {
+    "id": "admin3",
+    "name":"Alejandro",
+    "lastName":"Villafane",
+    "age":30,
+    "email":"alejandro@zvi.com",
+    "password":"Alejo09",
+    "code":"ch3538",
+    "verified":true,
+    "logged":true
+  },
+  {
+    "id": "admin4",
+    "name":"Nicolas",
+    "lastName":"Cirulli",
+    "age":28,
+    "email":"nicocirulli@gmail.com",
+    "password":"nicociru10",
+    "code":"ch3539",
+    "verified":true,
+    "logged":true
+  }
+]

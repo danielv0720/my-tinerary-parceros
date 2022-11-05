@@ -1,0 +1,33 @@
+.bg-footer{
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  background-color: #8BC6EC;
+  background-image: linear-gradient(135deg, #8BC6EC 0%, #9599E2 100%);
+  
+}
+.linksFooter{
+  color: white;
+  text-decoration: none;
+  display: flex;
+  gap: 10px;
+  font-size: 20px;
+}
+.imgsocial img{
+  width: 40px;
+  height: 40px;
+  
+}
+.imgsocial{
+  display: flex;
+  gap: 10px;
+}
+
+@media screen and (max-width:600px){
+h3{
+  padding: 5px;
+  font-size: 20px;
+}
+}
