@@ -11,6 +11,8 @@ const Header = () => {
         </div>
         <img src={imgCover} alt="cover" className="img-cover" />
       </div>
+
+      
   )
 }
 

@@ -14,11 +14,11 @@ export default function NotFound(props) {
       <div className="container-home2">
         <div className="buttons-redirect d-flex center row gap-15 card_container">
           <div className="img-btn2 d-flex column gap-5 ">
-            <img className="img-link2" src={img1} alt="cities"/>
+            
             <CallToAction path="/cities" message="Go to Cities" />
           </div>
           <div className="img-btn2 d-flex column gap-5">
-            <img className="img-link2" src={img2} alt="hotels"/>
+            
             <CallToAction path="/hotels" message="Go to Hotels" />
           </div>
         </div>

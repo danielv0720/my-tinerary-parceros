@@ -17,8 +17,9 @@ const Navbar = () => {
         <nav className='d-flex space-between nav shadow1 w-100 py-10  align-center'>
             <div className="d-flex align-center logo-tittle-nav" >
                 <Link to='/' className='d-flex text-decoration__none align-center dark-light'>
-                    <img src="https://cdn-icons-png.flaticon.com/512/169/169477.png?w=360" alt="logo" className='logo-nav' />
-                    <h4 className="title-nav" >My Itinerary</h4>
+                    <Link className='d-flex text-decoration__none align-center dark-light' to='/'><img src="https://cdn-icons-png.flaticon.com/512/169/169477.png?w=360" alt="logo" className='logo-nav' />
+                    <h4 className="title-nav" >My Itinerary</h4></Link>
+                
                 </Link>
             </div>
             <IoMenuOutline className='icon-menu' onClick={handleClickMenu} />
