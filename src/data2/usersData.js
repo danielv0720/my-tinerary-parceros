@@ -42,6 +42,7 @@ let usersData=[
         code: "function(){console.log('code 4')}",
         verified: true,
         logged: true
+        
     }
 ]
 export default usersData
