@@ -1,6 +1,6 @@
 // Components
 
-import Home1 from './pages/Home1'
+import Home from './pages/Home'
 // Routes
 import { Routes, Route } from 'react-router-dom';
 // Styles
@@ -25,7 +25,7 @@ function App() {
     <Layout>
       <AutoToTop />
       <Routes>
-        <Route path='/' exact element={<Home1 />}/>
+        <Route path='/' exact element={<Home />}/>
         <Route path='/cities' element={<Cities />}/>
         <Route path='/hotels' element={<Hotels />}/>
         <Route path='*' element={<NotFoundPage />}/>

@@ -6,7 +6,7 @@ import "../Footer/Footer.css";
 
 import Desplazar from '../Desplazar/Desplazar1';
 import Carousel from "../Carousel/Carousel";
-import Footer from '../Footer/Footer';
+
 
 
 export default function Home2() {
@@ -53,7 +53,7 @@ export default function Home2() {
     <Desplazar next={next} prev={prev}>
     <Carousel tipoImagen={tipoImagen}></Carousel>
     </Desplazar>
-      <Footer />
+  
     </>
   );
 }

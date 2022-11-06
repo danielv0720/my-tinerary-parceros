@@ -10,10 +10,17 @@
 
 .container_flecha1{
   position: absolute;
-  width: 100%;
+  width: 90%;
   align-items: center;
   display: flex;
   justify-content: space-between;
  
+
+}
+
+@media screen and (max-width: 1044px){
+  .flechai, .flechad {
+    display: none;
+  }
 
 }
