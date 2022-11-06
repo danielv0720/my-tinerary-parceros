@@ -31,6 +31,14 @@ body {
   object-fit: cover;
 }
 
+.img-link2{
+  display: flex;
+  flex-wrap: wrap;
+  width: 400px;
+  height: 150px;
+ 
+}
+
 .title-question {
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
@@ -59,6 +67,14 @@ body {
   background-color: #8BC6EC;
 background-image: linear-gradient(135deg, #8BC6EC 0%, #9599E2 100%);
 
+}
+
+.container-home2 {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+width: 100%;
+margin-top: -50px;
 }
 
 .home2 {
@@ -290,6 +306,20 @@ background-image: linear-gradient(135deg, #8BC6EC 0%, #9599E2 100%);
 
 }
 
+@media screen and (max-width:600px){
+  .container-home2{
+    margin-top: -30px;
+  } 
+  .img-link2{
+    width: 350px;
+    height: 150px;
+  } 
+  .img-btn2 {
+    width: 350px;
+  }
+}
+
+
 
 
 
@@ -330,8 +360,6 @@ background-image: linear-gradient(135deg, #8BC6EC 0%, #9599E2 100%);
     background-color:  rgba(158, 228, 87, 0.521);
   }
 
- 
- 
 }
 
 @media screen and (max-width: 642px){
@@ -342,6 +370,9 @@ background-image: linear-gradient(135deg, #8BC6EC 0%, #9599E2 100%);
   .paragraph-cover {
     width: 70%;
   }
+  .container-home2{
+      margin-top: 0px;
+    }
 }
 
 .nav-mobile {
@@ -414,5 +445,11 @@ background-image: linear-gradient(135deg, #8BC6EC 0%, #9599E2 100%);
   .img-btn {
     width: 95%;
   }
-
+  .img-link2{
+    width: 250px;
+    height: 150px;
+  } 
+  .img-btn2 {
+    width: 250px;
+  }
 }
