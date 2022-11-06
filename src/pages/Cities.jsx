@@ -2,7 +2,7 @@ import React from 'react'
 
 const Cities = () => {
   return (
-    <div className="cities" >Cities</div>
+    <div className="cities grow" >Cities</div>
   )
 }
 

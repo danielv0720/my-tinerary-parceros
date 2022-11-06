@@ -1,6 +1,5 @@
 // Components
-import Navbar from './components/Navbar';
-import Home1 from './pages/Home1'
+
 // Routes
 import { Routes, Route } from 'react-router-dom';
 // Styles
@@ -11,7 +10,8 @@ import AutoToTop from './components/AutoToTop';
 import Cities from './pages/Cities';
 import Hotels from './pages/Hotels';
 import Layout from './layout/Layout';
-
+import Home from './pages/Home';
+import ScrolltoTop from './components/Scrolltotop/Scrolltotop'
 // Layout
 
 
@@ -19,22 +19,16 @@ import Layout from './layout/Layout';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Layout>
+      <ScrolltoTop/>
+      <AutoToTop />
+      <Routes>
+      
+        <Route path='/' exact element={<Home/>}/>
+        <Route path='/cities' element={<Cities />}/>
+        <Route path='/hotels' element={<Hotels />}/>
+      </Routes>
+    </Layout>
   );
 }
 
