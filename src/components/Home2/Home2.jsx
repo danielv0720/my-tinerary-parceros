@@ -2,11 +2,11 @@ import { useCallback, useEffect, useState } from 'react'
 
 import "../Carousel/Carousel.css";
 import "..//Desplazar/Desplazar.css";
-import "../Footer/Footer.css";
+
 
 import Desplazar from '../Desplazar/Desplazar1';
 import Carousel from "../Carousel/Carousel";
-import Footer from '../Footer/Footer';
+
 
 
 export default function Home2() {
@@ -49,10 +49,10 @@ export default function Home2() {
 
 
   return (
-    <>
+   
     <Desplazar next={next} prev={prev}>
-    <Carousel tipoImagen={tipoImagen}></Carousel>
+    <Carousel tipoImagen={tipoImagen}> </Carousel>
     </Desplazar>
-    </>
+
   );
 }

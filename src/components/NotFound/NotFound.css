@@ -1,14 +1,16 @@
+
 .main_notfound{
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   align-items: center;
  color: white;
-  min-height: 90.2vh;
+  min-height: 69.5vh;
   width: 100%;
   background-image: url(/public/error404.png);
   background-repeat: no-repeat;
   background-size: cover;
+  background-position-y: -150px;
   
 }
 

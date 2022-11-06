@@ -1,6 +1,5 @@
+
 import React from 'react'
-
-
 import '../App.css'
 import CallToAction from '../components/CallToAction'
 
@@ -36,7 +35,7 @@ const Home = () => {
         <Home2/>
     </div>
     </>
-  )
+  );
 }
 
 export default Home

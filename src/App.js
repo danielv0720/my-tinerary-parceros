@@ -1,5 +1,6 @@
 // Components
 
+
 // Routes
 import { Routes, Route } from 'react-router-dom';
 // Styles
@@ -27,7 +28,7 @@ function App() {
       <ScrolltoTop/>
       <AutoToTop />
       <Routes>
-        <Route path='/' exact element={<Home/>}/>
+        <Route path='/' exact element={<Home />}/>
         <Route path='/cities' element={<Cities />}/>
         <Route path='/hotels' element={<Hotels />}/>
         <Route path='*' element={<NotFoundPage />}/>

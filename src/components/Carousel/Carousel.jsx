@@ -1,6 +1,6 @@
-
 import cityData from "../../data2/cityData";
 import hotelsData from "../../data2/hotelsData";
+import './Carousel'
 
 export default function Carousel(props) {
   let { tipoImagen } = props;
