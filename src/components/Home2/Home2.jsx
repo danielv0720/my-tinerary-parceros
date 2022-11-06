@@ -53,7 +53,6 @@ export default function Home2() {
     <Desplazar next={next} prev={prev}>
     <Carousel tipoImagen={tipoImagen}></Carousel>
     </Desplazar>
-      <Footer />
     </>
   );
 }

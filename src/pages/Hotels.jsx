@@ -1,8 +1,10 @@
 import React from 'react'
 
+import '../App.css'
+
 const Hotels = () => {
   return (
-    <div>Hotels</div>
+    <div className='grow'>Hotels</div>
   )
 }
 
