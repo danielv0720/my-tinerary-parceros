@@ -14,6 +14,13 @@ body {
 
 }
 
+.container-form {
+  width: 44%;
+  padding: 10px;
+  border: solid 2px  rgb(40, 119, 93);
+  padding: 30px;
+}
+
 .hidden {
   overflow: hidden;
 }
