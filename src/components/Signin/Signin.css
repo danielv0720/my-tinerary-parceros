@@ -1,0 +1,86 @@
+/* 
+
+.container_signin{
+  min-height: 90.4vh;
+  display: flex;
+}
+
+.container_contact{
+display: flex;
+flex-direction: column;
+align-items: center;
+margin-top: 10%;
+width: 40%;
+gap: 5px;
+
+padding: 20px;
+border: 2px solid black;
+border-radius: 7px;
+margin: auto;
+}
+
+.container_input{
+  display: flex;
+  gap: 10px;
+  
+}
+
+.controsl{
+  border-radius: 5px;
+  padding: 4px;
+  width: 100%; */
+/* } */
+.submit-signup {
+  width: 80px;
+  height: 40px;
+  padding: 5px;
+  background-color: aquamarine;
+  color: rgb(31, 30, 30);
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  
+  
+}
+
+.img-google {
+  width: 20px;
+  height: 20px;
+}
+.btn-google {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  border: none;
+  font-weight: 600;
+  width: 100%;
+  background-color: rgb(189, 205, 216);
+  margin-top: 5px;
+}
+
+.input-signup {
+  width: 90%;
+  height: 30px;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+.container-form {
+  width: 44%;
+  padding: 10px;
+  border: solid 2px  rgb(40, 119, 93);;
+  padding: 20px;
+}
+
+.form{
+width: 100%;
+display: flex;
+justify-content: center;
+align-items: center;
+min-height: 70vh;
+
+}
+.button_forn{
+  display: flex;
+  gap: 10px;
+}
+
