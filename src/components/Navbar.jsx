@@ -34,6 +34,9 @@ const Navbar = () => {
                 <li className="list-style__none nav-list">
                     <Link to='/hotels' className="text-decoration__none p-20 text-center d-flex align-center fw-600 dark-light size-20p nav-link">Hotels</Link>
                 </li>
+                <li className="list-style__none nav-list  btn_sig">
+                    <Link to='/signin' className="text-decoration__none p-20 text-center d-flex align-center fw-600  size-20p nav-link signin btn">Signin</Link>
+                </li>
                 <li className="list-style__none nav-list">
                     <Link to='/signUp' className="text-decoration__none p-20 text-center d-flex align-center fw-600  size-20p nav-link signUp">Sign Up</Link>
                 </li>
