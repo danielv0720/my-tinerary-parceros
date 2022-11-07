@@ -12,7 +12,7 @@ export default function SigninButton(props) {
         <button className="submit-signup">Sign up</button>
       </div>
       <div >
-        <button className="submit-signup btn-google "><img className="img-google" src={url} alt="" />Signin with Google </button>
+        <button className="submit-signup btn-google "><img className="img-google" src={url} alt="" /> with Google </button>
       </div>
     </>
   );

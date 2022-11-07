@@ -1,4 +1,14 @@
 .signUp {
     background-color: cornflowerblue;
     color: beige;
+    display: flex;
+    
 }
+
+.signin{
+    background-color: white;
+    color:cornflowerblue;
+    display: flex;
+
+}
+
