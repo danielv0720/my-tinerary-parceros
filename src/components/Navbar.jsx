@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import '../App.css'
+import './Navbar.css'
 import { Link } from 'react-router-dom'
 
 import { IoMenuOutline } from "react-icons/io5";
@@ -32,6 +33,9 @@ const Navbar = () => {
                 </li>
                 <li className="list-style__none nav-list">
                     <Link to='/hotels' className="text-decoration__none p-20 text-center d-flex align-center fw-600 dark-light size-20p nav-link">Hotels</Link>
+                </li>
+                <li className="list-style__none nav-list">
+                    <Link to='/signUp' className="text-decoration__none p-20 text-center d-flex align-center fw-600  size-20p nav-link signUp">Sign Up</Link>
                 </li>
             </ul>
         </nav>
