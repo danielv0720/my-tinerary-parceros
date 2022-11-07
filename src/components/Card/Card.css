@@ -1,0 +1,15 @@
+.card-citie-hotel {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 2px;
+    height: 310px;
+    width: 278px;
+    overflow: hidden;
+}
+
+.img-card {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
