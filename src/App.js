@@ -16,6 +16,7 @@ import Cities from './pages/Cities';
 import Hotels from './pages/Hotels';
 import Layout from './layout/Layout';
 import NotFoundPage from './pages/NotFoundPage'
+import SignUp from './pages/SignUp';
 // Layout
 
 
@@ -32,6 +33,7 @@ function App() {
         <Route path='/cities' element={<Cities />}/>
         <Route path='/hotels' element={<Hotels />}/>
         <Route path='*' element={<NotFoundPage />}/>
+        <Route path='signUp' element={< SignUp/>}/>
       </Routes>
     </Layout>
     
