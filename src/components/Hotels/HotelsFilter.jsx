@@ -7,6 +7,7 @@ export const HotelsFilter = memo(({filterSelected}) => {
 
   const applySorting = (optionSelected) => {
     console.log(optionSelected);
+    
     if (optionSelected === "mayor") {
       console.log(res);
 

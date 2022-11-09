@@ -10,8 +10,11 @@ const Hotels = () => {
 
   const applySorting = (optionSelected) => {
     setSortingOption(optionSelected);
+
     let sortingFiltersCopy = [...sortingFilters];
+
     console.log(optionSelected);
+
     if (optionSelected === "mayor") {
       console.log(sortingFiltersCopy);
 
