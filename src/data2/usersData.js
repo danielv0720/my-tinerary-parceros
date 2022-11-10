@@ -1,0 +1,48 @@
+let usersData=[
+    {
+        id: "user1",
+        name: "Ignacio",
+        lastName: "Borraz",
+        age: 32,
+        email: "ignacioborraz@hotmail.com",
+        password: "Hola1234",
+        code: "function(){console.log('code 1')}",
+        verified: true,
+        logged: true
+    },
+    {
+        id: "user2",
+        name: "Federico",
+        lastName: "Rojas",
+        age: 21,
+        email: "federojas@gmail.com",
+        password: "soyfede2222",
+        code: "function(){console.log('code 2')}",
+        verified: true,
+        logged: true
+    },
+    {
+        id: "user3",
+        name: "IJosefina",
+        lastName: "Almada",
+        age: 26,
+        email: "josefinaalm@hotmail.com",
+        password: "pass3131",
+        code: "function(){console.log('code 3')}",
+        verified: true,
+        logged: true
+    },
+    {
+        id: "user4",
+        name: "Natalia",
+        lastName: "Martinez",
+        age: 30,
+        email: "nataliamartinez@gmail.com",
+        password: "natinati2020",
+        code: "function(){console.log('code 4')}",
+        verified: true,
+        logged: true
+        
+    }
+]
+export default usersData

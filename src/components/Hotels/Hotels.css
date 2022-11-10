@@ -1,0 +1,83 @@
+.container_filter{
+  display: flex;
+justify-content: space-around;
+padding: 10px;
+
+
+}
+
+.carousel_container2{
+  min-height: 10vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+.card2{
+  flex-grow: 1;
+  display: flex;
+  gap:5px ;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  padding: 5px;
+ 
+  
+}
+.card3{
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  border-radius: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  width: 600px;
+  height: 300px;
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.capa1 {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  background: linear-gradient(rgba(53, 53, 99, 0.377), rgba(60, 60, 107, 0.459), rgba(96, 96, 141, 0.336));
+  position: absolute;
+  color: white;
+  
+}
+
+img{
+  width: 100%;
+  height:100%;
+  
+}
+.card1 h3{
+  
+  justify-content: center;
+  position: absolute;
+display: flex;
+justify-content: center;
+color: white;
+
+}
+
+
+@media screen and (max-width: 660px){
+  .card3{
+ 
+    width: 400px;
+    height: 250px;
+
+  }
+}
+
+@media screen and (max-width: 440px){
+  .card3{
+ 
+    width: 300px;
+    height: 200px;
+
+  }
+}
+

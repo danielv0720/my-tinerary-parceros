@@ -1,0 +1,112 @@
+let itinerary =[
+  {
+    id:"it1",
+    hotelId:"ho1",
+    name:"TINI",
+    photo:"https://pbs.twimg.com/profile_images/1524785602813521925/ao7IeqrI_400x400.jpg",
+    price:5500,
+    date: "new Date(2022,12,12)",
+    userId:"city1"
+  },
+  {
+    id:"it2",
+    hotelId:"ho1",
+    name:"Malvinas. Canto al sentimiento de un pueblo",
+    photo:"https://www.teatroenrosario.com//imagenes/obras/132e7042c0ec40a33d9e0c96ff699858.jpg",
+    price:50,
+    date: "new Date(2022,12,12)",
+    userId:"city1"
+  },
+  {
+    id:"it1",
+    hotelId:"ho2",
+    name:"Michael Bublé",
+    photo:"https://cdn.wegow.com/media/artists/michael-buble/michael-buble-1495709446.78.2560x1440.png",
+    price:200,
+    date: "new Date(2022,12,12)",
+    userId:"city2"
+  },
+  {
+    id:"it2",
+    hotelId:"ho2",
+    name:"El mar de noche",
+    photo:"https://img.alternativateatral.com/scripts/es/fotos/obras/resumen/000161554.jpg",
+    price:70,
+    date: "new Date(2022,12,12)",
+    userId:"city2"
+  },
+  {
+    id:"it1",
+    hotelId:"ho3",
+    name:"Michel telo",
+    photo:"https://s2.abcstatics.com/Media/201202/09/michel-telo--478x270.jpg",
+    price:200,
+    date: "new Date(2022,12,12)",
+    userId:"city3"
+  },
+  {
+    id:"it2",
+    hotelId:"ho3",
+    name:"4 AMIGOS",
+    photo:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS95Fu9i33ZwraM8IXZTJygjBomxXtIRV6v6t3TXWrVTvEYIjL3vYpVc72UtKk2xmWziGM&usqp=CAU",
+    price:20,
+    date: "new Date(2022,12,12)",
+    userId:"city3"
+  },
+  {
+    id:"it1",
+    hotelId:"ho4",
+    name:"Eros Ramazzotti",
+    photo:"https://eventicket.s3-sa-east-1.amazonaws.com/imgs/23823-img-destaque.jpg",
+    price:120,
+    date: "new Date(2022,12,12)",
+    userId:"city4"
+  },
+  {
+    id:"it2",
+    hotelId:"ho4",
+    name:"Chico Buarque - Turnê Que tal um samba",
+    photo:"https://turismoemfoco.com.br/v1/wp-content/uploads/2022/06/Chico-Buarque-por-Francisco-Proner-.jpg",
+    price:15,
+    date: "new Date(2022,12,12)",
+    userId:"city4"
+  },
+  {
+    id:"it1",
+    hotelId:"ho5",
+    name:"Jerry Rivera",
+    photo:"http://images.sk-static.com/images/media/img/col6/20100309-172434-917668.png",
+    price:45,
+    date: "new Date(2022,12,12)",
+    userId:"city5"
+  },
+  {
+    id:"it2",
+    hotelId:"ho5",
+    name:"Permitido Equivocarse ",
+    photo:"http://static-1.ivoox.com/audios/4/1/7/0/4170c8efc9dc5103cda024541789d871_LG.jpg",
+    price:20,
+    date: "new Date(2022,12,12)",
+    userId:"city5"
+  },
+  {
+    id:"it1",
+    hotelId:"ho6",
+    name:"Wisin y Yandel: La Ultima Mision",
+    photo:"https://upload.wikimedia.org/wikipedia/en/4/42/Wisin_yandel_La_UltimaMisionTour.JPEG",
+    price:170,
+    date: "new Date(2022,12,12)",
+    userId:"city6"
+  },
+  {
+    id:"it2",
+    hotelId:"ho6",
+    name:"Besame Mucho Festival",
+    photo:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTV7s3Ua7OVje0oTFrtB4sffNAJcwlE3AcSrXfdorYHFpHNoIdI9IPC5WvZjnyQkUnmSVQ&usqp=CAU",
+    price:30,
+    date: "new Date(2022,12,12)",
+    userId:"city6"
+  }
+]
+
+export default itinerary
