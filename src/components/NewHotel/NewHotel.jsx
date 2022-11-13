@@ -2,12 +2,12 @@ import React from 'react'
 
 export default function NewHotel(props) {
   
-  let {placeholder}=props
+  let {placeholder, onChange}=props
 
   return (
     <>
     
-    <input className="input-signup"  placeholder={placeholder} prequired/>
+    <input className="input-signup"  onChange={onChange}  placeholder={placeholder} prequired/>
     
     </>
     
