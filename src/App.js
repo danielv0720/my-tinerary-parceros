@@ -26,6 +26,7 @@ import SigninPage from './pages/SigninPage';
 import { HotelPage } from './components/DescriptionHotel/HotelPage';
 import NewHotelPage from './pages/NewHotelPage';
 import DetailCity  from './pages/DetailCity';
+import NewCity from './pages/NewCity/NewCity';
 // Layout
 
 
@@ -47,6 +48,7 @@ function App() {
         <Route path='*' element={<NotFoundPage />}/>
         <Route path='/signUp' element={< SignUp/>}/>
         <Route path='/city/:idCity' element={<DetailCity/>}/>
+        <Route path='/newcity' element={<NewCity/>}/>
       </Routes>
     </Layout>
     
