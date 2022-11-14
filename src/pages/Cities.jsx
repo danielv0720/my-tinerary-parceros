@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 
 
 import '../App.css' 
@@ -9,9 +9,16 @@ import Checkbox from '../components/Checkbox/Checkbox'
 import cityData from '../data2/cityData.js'
 import Card from '../components/Card/Card'
 
+import axios from 'axios'
+import { URL_API } from '../api/url'
 
 
 const Cities = () => {
+
+  useEffect(()=>{
+    axios.get(`${URL_API}/api/cities`)
+    .then(response=>console.log(response.data.response))
+  },[])
 
 
   const continent = cityData.map( city => {return city.continent})
