@@ -1,87 +1,60 @@
-import React, { useState } from "react";
+import React, {useEffect, useState}  from "react";
 
+import Card from "../components/Card/Card"
+import '../pages/Cities.css'
 import "../App.css";
-import { CityHotels } from "../components/Hotels/CityHotels";
-import hotelsData from "../data2/hotelsData";
+import axios from "axios";
+import { URL_API } from "../api/url";
+
 
 const Hotels = () => {
-  const [sortingFilters, setSortingFilters] = useState(hotelsData);
-  const [sortingOption, setSortingOption] = useState("");
+  const [data, setData] = useState([])
+    const [ inputValue, setInputValue ] = useState('')
+    const [ optionValue, setOptionValue ] = useState('')
+    
+  useEffect(()=>{
+    fetchApi()
+  },[inputValue, optionValue])
 
-  const applySorting = (optionSelected) => {
-    setSortingOption(optionSelected);
+    
+    let fetchApi = () =>{
+      axios.get(`${URL_API}/api/hotels?name=${inputValue}&order=${optionValue}`)
+        .then(res => {
+            console.log(res)
+            setData(res.data.response)
+            console.log(data)
+        })
+        .catch(err => console.log(err))
+      }
+     
 
-    let sortingFiltersCopy = [...sortingFilters];
-
-    console.log(optionSelected);
-
-    if (optionSelected === "mayor") {
-      console.log(sortingFiltersCopy);
-
-      sortingFiltersCopy = sorting("mayor", sortingFiltersCopy);
-    } else if (optionSelected === "menor") {
-      sortingFiltersCopy = sorting("menor", sortingFiltersCopy);
-    } 
-
-    setSortingFilters(sortingFiltersCopy);
-  };
-
-  const sorting = (tipo, sortingFilters) => {
-    let result;
-    if (tipo === "mayor") {
-      result = sortingFilters.sort((a, b) => {
-        if (b.name.toLowerCase() < a.name.toLowerCase()) {
-          return -1;
-        }
-        return 0;
-      });
-    } else if (tipo === "menor") {
-      result = sortingFilters.sort((a, b) => {
-        if (a.name.toLowerCase() < b.name.toLowerCase()) {
-          return -1;
-        }
-        return 0;
-      });
-    } else {
-      return sortingFilters;
-    }
-
-    return result;
-  };
-
-  const search = (e) => {
-    console.log(e.target.value);
-
-    const hotelsDataSearched = hotelsData.filter((evento) => {
-      return evento.name.toLowerCase().includes(e.target.value.toLowerCase());
-    });
-
-    const result = sorting(sortingOption, hotelsDataSearched);
-
-    console.log(result);
-
-    setSortingFilters(result);
-  };
+    
+    console.log(inputValue)
+    console.log(optionValue)
 
   return (
-    <>
-      {/* <HotelsFilter filterSelected={filterSelected} /> */}
-      <div className="container_filter">
-        <div>
-          <select onChange={(e) => applySorting(e.target.value)}>
-            <option selected value="">
-              Ordenar por:
-            </option>
-            <option value="menor">asc/desc</option>
-            <option value="mayor">desc/asc</option>
-          </select>
-        </div>
-        <div>
-          <input type="text" placeholder="Buscar" onChange={search} />
-        </div>
-      </div>
-      <CityHotels result={sortingFilters} />
-    </>
+   
+      <div className="w-100 cities d-flex align-center grow column" >
+       <div className="container-inputs p-10">
+          <div className="d-flex center gap-5">
+            <select name="select" id="" onChange={ (e) => setOptionValue(e.target.value) } >
+              <option value="Order by">Order By</option>
+              <option value="Asc">Asc</option>
+              <option value="Desc">Desc</option>
+            </select>
+          </div>
+          <div className="d-flex gap-5">
+            <input type="text" name="search" id="search" placeholder='Search' onChange={(e) => setInputValue(e.target.value)} />
+          </div>
+       </div> 
+       <div className="cards">
+        {data.map(hotel => { 
+           return <Card img={hotel.photo} name={hotel.name} key={hotel.id} idCity={hotel.id} />
+        } )}
+      </div> 
+    </div>
+   
+   
   );
 };
 
