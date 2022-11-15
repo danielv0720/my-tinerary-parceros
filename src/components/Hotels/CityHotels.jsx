@@ -8,7 +8,7 @@ export const CityHotels = memo((props) => {
     <>
       <div>
         {result.map((foundHotel) => (
-          <OneHotel id={foundHotel.id} datos={foundHotel} />
+          <OneHotel key={foundHotel.id} id={foundHotel.id} datos={foundHotel} />
         ))}
       </div>
     </>
