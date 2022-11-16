@@ -49,7 +49,7 @@ const Hotels = () => {
        </div> 
        <div className="cards">
         {data.map(hotel => { 
-           return <Card img={hotel.photo} name={hotel.name} key={hotel.id} idCity={hotel.id} />
+           return <Card img={hotel.photo[0]} name={hotel.name} key={hotel._id} path={`/hotels/${hotel._id}`} />
         } )}
       </div> 
     </div>
