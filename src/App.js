@@ -8,7 +8,7 @@ import './App.css';
 import './components/NotFound/NotFound.css'
 import './components/Signin/Signin.css'
 import './components/DescriptionHotel/HotelPage.css'
-/* import './components/Hotels/Hotels.css' */
+import './components/Hotels/Hotels.css'
 import './components/NewHotel/NewHotel.css'
 // import './components/Hotels/Hotels.css'
 // Scroll To Top when change route
