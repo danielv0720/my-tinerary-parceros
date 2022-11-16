@@ -27,6 +27,7 @@ import { HotelPage } from './components/DescriptionHotel/HotelPage';
 import NewHotelPage from './pages/NewHotelPage';
 import DetailCity  from './pages/DetailCity';
 import NewCity from './pages/NewCity/NewCity';
+import HotelDetail from './pages/HotelDetail/HotelDetail';
 // Layout
 
 
@@ -49,6 +50,7 @@ function App() {
         <Route path='/signUp' element={< SignUp/>}/>
         <Route path='/city/:idCity' element={<DetailCity/>}/>
         <Route path='/newcity' element={<NewCity/>}/>
+        <Route path='/hotels/:idDetail' element={<HotelDetail/>}/>
       </Routes>
     </Layout>
     

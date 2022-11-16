@@ -63,7 +63,7 @@ console.log(valueCheck)
        </div> 
        <div className="cards">
         {cities.map(city => { 
-           return <Card img={city.photo} name={city.name} key={city.id} idCity={city.id} />
+           return <Card img={city.photo} name={city.name} idCity={city.id} path={`/city/${city.id}`} />
         } )}
       </div> 
     </div>
