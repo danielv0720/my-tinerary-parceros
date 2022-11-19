@@ -4,12 +4,8 @@
   padding: 10px;
   display: flex;
   flex-direction: column;
+  height: 100vh;
   justify-content: center;
-  margin-top: 13%;
-  justify-content: center;
-
-  
-  
 }
 
 

@@ -54,5 +54,6 @@ export default function Home2() {
     <Carousel tipoImagen={tipoImagen}> </Carousel>
     </Desplazar>
 
+
   );
 }
