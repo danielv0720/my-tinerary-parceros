@@ -6,8 +6,7 @@ import { Routes, Route } from 'react-router-dom';
 // Styles
 import './App.css';
 import './components/NotFound/NotFound.css'
-import './components/Signin/Signin.css'
-import './components/DescriptionHotel/HotelPage.css'
+
 
 import './components/NewHotel/NewHotel.css'
 
@@ -20,6 +19,7 @@ import Cities from './pages/Cities';
 import Hotels from './pages/Hotels';
 import Layout from './layout/Layout';
 import NotFoundPage from './pages/NotFoundPage'
+
 import SignUp from './pages/SignUp';
 import SigninPage from './pages/SigninPage';
 
@@ -27,6 +27,7 @@ import { HotelPage } from './components/DescriptionHotel/HotelPage';
 import NewHotelPage from './pages/NewHotelPage';
 import DetailCity  from './pages/DetailCity';
 import NewCity from './pages/NewCity/NewCity';
+import HotelDetail from './pages/HotelDetail/HotelDetail';
 // Layout
 
 
@@ -49,6 +50,7 @@ function App() {
         <Route path='/signUp' element={< SignUp/>}/>
         <Route path='/city/:idCity' element={<DetailCity/>}/>
         <Route path='/newcity' element={<NewCity/>}/>
+        <Route path='/hotels/:idDetail' element={<HotelDetail/>}/>
       </Routes>
     </Layout>
     
