@@ -8,16 +8,16 @@ import './App.css';
 import './components/NotFound/NotFound.css'
 import './components/Signin/Signin.css'
 import './components/DescriptionHotel/HotelPage.css'
-import './components/Hotels/Hotels.css'
+
 import './components/NewHotel/NewHotel.css'
-// import './components/Hotels/Hotels.css'
+
 // Scroll To Top when change route
 import AutoToTop from './components/AutoToTop';
 import ScrolltoTop from './components/Scrolltotop/Scrolltotop'
 // Components
 import Home from './pages/Home';
 import Cities from './pages/Cities';
-import Hotels from './pages/Hotels';// 
+import Hotels from './pages/Hotels';
 import Layout from './layout/Layout';
 import NotFoundPage from './pages/NotFoundPage'
 import SignUp from './pages/SignUp';
