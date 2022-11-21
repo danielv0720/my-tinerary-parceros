@@ -6,9 +6,12 @@ import "./NewCity.css";
 import Newcityinput from "./Newcityinput";
 import { URL_API } from "../../api/url";
 import axios from "axios";
+import Swal from 'sweetalert2'
+import { useNavigate } from "react-router-dom";
 
 
 export default function NewCity() {
+  let navigate = useNavigate();
   const [name, setName] = useState("");
   const [photo, setPhoto] = useState("");
   const [population, setPopulation] = useState(0);
@@ -41,6 +44,11 @@ export default function NewCity() {
       .then((res) => {
         console.log(res)
         setName('')
+        if(res.data.success){
+          return navigate("/cities");
+        }else{
+          Swal.fire(res.data.message.join('  -    -   -    -   -'))
+        }
       })
       .catch((err) => console.log(err));
 

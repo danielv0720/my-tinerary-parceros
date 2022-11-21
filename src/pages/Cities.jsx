@@ -28,21 +28,21 @@ const Cities = () => {
 
 
   useEffect(() => {
-    let path = `${URL_API}/api/cities?`;
+    let rutaBase = `${URL_API}/api/cities?`;
 
     if (valueCheck.length) {
       const valueCheckQuery = valueCheck.map(item => `continent=${item}`)
       const valueCheckQueryAll = valueCheckQuery.join("&");  
-      path = path.concat(valueCheckQueryAll)
+      rutaBase = rutaBase.concat(valueCheckQueryAll)
     }
 
     if (valueSearch) {
-      path = path.concat("&name=" + valueSearch)
+      rutaBase = rutaBase.concat("&name=" + valueSearch)
     }
 
-    console.log(path);
+    console.log(rutaBase);
 
-    axios.get(path).then((response) => {
+    axios.get(rutaBase).then((response) => {
       console.log(response.data.response);
       setCities(response.data.response)
     });
