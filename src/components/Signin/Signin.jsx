@@ -32,7 +32,7 @@ export default function Signin() {
     if (userFound.length > 0 ) {
       console.log('Ingreso');
       // Redirigir a home 
-      return navigate("/");
+      return navigate("/admincity");
     } else {
       console.log('Credenciales incorrectas');
       setMessage('Credenciales incorrectas')

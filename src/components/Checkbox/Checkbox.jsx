@@ -5,8 +5,9 @@ const Checkbox = (props) => {
 
   return (
     <div>
+        
+        <input  type="checkbox"  id={continent} onChange={onChange} value={continent} name={continent} />
         <label htmlFor={continent} >{continent} </label>
-        <input type="checkbox" name={continent} id={continent} onChange={onChange} value={continent} />
     </div>
   )
 }
