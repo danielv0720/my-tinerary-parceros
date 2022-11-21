@@ -9,7 +9,6 @@ import './components/NotFound/NotFound.css'
 import './components/Signin/Signin.css'
 import './components/DescriptionHotel/HotelPage.css'
 import './components/NewHotel/NewHotel.css'
-// import './components/Hotels/Hotels.css'
 // Scroll To Top when change route
 import AutoToTop from './components/AutoToTop';
 import ScrolltoTop from './components/Scrolltotop/Scrolltotop'
@@ -17,7 +16,6 @@ import ScrolltoTop from './components/Scrolltotop/Scrolltotop'
 import Home from './pages/Home';
 import Cities from './pages/Cities';
 import Hotels from './pages/Hotels';// 
-import Layout from './layout/Layout';
 import NotFoundPage from './pages/NotFoundPage'
 import SignUp from './pages/SignUp';
 import SigninPage from './pages/SigninPage';
@@ -28,6 +26,8 @@ import DetailCity  from './pages/DetailCity';
 import NewCity from './pages/NewCity/NewCity';
 import HotelDetail from './pages/HotelDetail/HotelDetail';
 // Layout
+import Layout from './layout/Layout';
+
 
 
 

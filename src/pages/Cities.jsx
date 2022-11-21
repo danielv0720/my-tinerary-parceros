@@ -95,7 +95,7 @@ const Cities = () => {
               img={city.photo}
               name={city.name}
               key={city.id}
-              idCity={city._id}
+              path={`/city/${city._id}`}
             />
           );
         })}
