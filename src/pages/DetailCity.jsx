@@ -55,15 +55,3 @@ const DetailCity = () => {
 };
 
 export default DetailCity;
-
-/* 
-    <div className="d-flex center align-center w-100 h-100vh">
-        <div className="cardDetail">
-            <img  className='img-detail' src={filter.photo} alt='imagen' />
-            <h3>algo que se yo</h3>
-            <p><b>Continent: </b> dsadkasdas</p>
-            <p><b>Population: </b> sdadkasdaksdapo</p>
-        </div>
-    </div>
-
-*/
