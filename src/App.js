@@ -29,16 +29,22 @@ import DetailCity  from './pages/DetailCity';
 import NewCity from './pages/NewCity/NewCity';
 import MyCities from './pages/MyCities';
 import HotelDetail from './pages/HotelDetail/HotelDetail';
+import { useEffect } from 'react';
+import { startSaveCities } from './redux/actions/cityAction';
+import { useDispatch } from 'react-redux';
 // Layout
-import Layout from './layout/Layout';
-
-
-
-
 
 function App() {
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(startSaveCities())
+
+    //Aqui
+  }, [dispatch])
+  
+
   return (
-    
       <Layout>
       <ScrolltoTop/>
       <AutoToTop />

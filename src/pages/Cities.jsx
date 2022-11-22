@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from 'react-router-dom';
 
 import "../App.css";
 import "../pages/Cities.css";
@@ -11,20 +10,15 @@ import Card from "../components/Card/Card";
 
 import axios from "axios";
 import { URL_API } from "../api/url";
+import { useDispatch, useSelector } from "react-redux";
+import { startSaveCitiesWithFilter } from "../redux/actions/cityAction";
 
 const Cities = () => {
-  const params = useParams();
-  console.log(params)
+  const citiesState = useSelector(state => state.cities)
+  
+  const dispatch = useDispatch()
   const [valueCheck, setValueCheck] = useState([]);
-  const [cities, setCities] = useState([])
   const [valueSearch, setValueSearch] = useState("");
-
-  useEffect(() => {
-    axios.get(`${URL_API}/api/cities`).then((response) => {
-      console.log(response.data.response);
-      setCities(response.data.response)
-    });
-  }, []);
 
 
   useEffect(() => {
@@ -42,11 +36,8 @@ const Cities = () => {
 
     console.log(rutaBase);
 
-    axios.get(rutaBase).then((response) => {
-      console.log(response.data.response);
-      setCities(response.data.response)
-    });
-  }, [valueCheck, valueSearch]);
+    dispatch(startSaveCitiesWithFilter(rutaBase))
+  }, [valueCheck, valueSearch, dispatch]);
 
 
   const continents = cityData.map((city) => city.continent);
@@ -89,7 +80,7 @@ const Cities = () => {
         </div>
       </div>
       <div className="cards">
-        {cities.map((city) => {
+        {citiesState.map((city) => {
           return (
             <Card
               img={city.photo}
