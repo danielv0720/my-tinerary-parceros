@@ -1,19 +1,31 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { URL_API } from "../../api/url";
-
-const getcities = createAsyncThunk('getcities',async()=>{
-const res = await axios.get(`${URL_API}`)
-console.log(res);
-
-// return {
-//   listacities :res.data.response
-// }
-})
+import { types } from "../types/types"
 
 
-const cityAction ={
-  getcities
+export const startSaveCities = () => {
+  return async (dispatch) => {
+    const cities = (await axios.get(`${URL_API}/api/cities`)).data.response;
+    console.log(cities);
+    dispatch(saveCities(cities))
+  }
 }
 
-export default cityAction
+export const startSaveCitiesWithFilter = (path) => {
+  return async (dispatch) => {
+    const cities = (await axios.get(path)).data.response;
+    console.log(cities);
+    dispatch(saveCities(cities))
+  }
+}
+
+
+export const saveCities = (cities) => {
+  return {
+    type: types.loadCities,
+    payload: cities
+  }
+}
+
+
+//Aqui
