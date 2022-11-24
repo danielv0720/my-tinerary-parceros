@@ -1,30 +1,33 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import NewHotel from './NewHotel'
 import NewHotelButton from './NewHotelButton'
 import { URL_API } from '../../api/url'
 import axios from 'axios'
 import Swal from 'sweetalert2'
 import { useNavigate } from 'react-router-dom'
+
+import './NewHotel.css'
+
 export default function NewHotelCreate() {
 
-/* useEffect(()=>{
- 
-},[])
- */
-const [name,setName]= useState('')
-const [photo,setPhoto]= useState('')
-const [capacity,setCapacity]= useState(0)
-const [city,setCity]= useState('')
+  /* useEffect(()=>{
+   Swal.fire()
+  },[]) */
 
-const navigate = useNavigate()
+  const [name, setName] = useState('')
+  const [photo, setPhoto] = useState('')
+  const [capacity, setCapacity] = useState(0)
+  const [city, setCity] = useState('')
 
-let data_hotel = {
-  name: "",
-  photo: "",
-  capacity: 0,
- 
-}
-  const handleSubmit= (e) =>{
+  const navigate = useNavigate()
+
+  let data_hotel = {
+    name: "",
+    photo: "",
+    capacity: 0,
+
+  }
+  const handleSubmit = (e) => {
     e.preventDefault()
 
     data_hotel = {
@@ -32,59 +35,78 @@ let data_hotel = {
       photo: photo,
       capacity: capacity,
       cityId: city,
-      userId: "sadkoppps"
+      userId: "636d864fec3e352a19f44e9f"
     }
 
-    axios({
-      method: 'post',
-      url: `${URL_API}/api/hotels`,
-      data: data_hotel
-    })
-    .then(res => {
-      /* console.log(res) */
-       /* let validationErr = res.data.message.join('\n') */
-      if(res.data.success){
-        Swal.fire({
-          icon: 'success',
-          title: 'Success',
-          text: 'The data has been sent successfully'
-        })
-        return navigate('/hotels')
-      } else {
-        Swal.fire({
-          icon: 'error',
-          toast: true,
-          text: res.data.message.join('\n'),
-          
-        })
-      }
-    })
-    .catch(err => console.log(err))
-    
+    axios.post(`${URL_API}/api/hotels`, data_hotel)
+      .then(res => {
+        console.log(res.data.success)
+        console.log(res.data.message)
+        if (res.data.success) {
+          Swal.fire({
+            icon: 'success',
+            title: res.data.message,
+            /* text: 'ENVIADO' */
+          })
+
+
+          return navigate('/hotels')
+        }
+        else {
+          let toast = Swal.mixin({
+            toast: true,
+            /* position: 'center-end', */
+            
+            showConfirmButton: false,
+            allowOutsideClick: true,
+            didOpen: (toast) => {
+              toast.addEventListener('mouseenter', Swal.stopTimer)
+              toast.addEventListener('mouseleave', Swal.resumeTimer)
+            },
+            timer: 3000,
+            timerProgressBar: true
+          })
+
+          let errorMsg = res.data.message            
+            toast.fire({
+              title: errorMsg.join('\n\n'),
+              icon: 'error',
+              customClass: {
+                title: 'msgErr'
+              }
+            })
+
+            
+        }
+      })
+      .catch(err => {
+        console.log(err)
+      })
+
   }
 
-  
+
   return (
     <>
-    <form className='create_form' onSubmit={handleSubmit}>
-    <NewHotel 
-      onChange={(e) => setName(e.target.value)} 
-      placeholder='Holtel Name' />
-    <NewHotel 
-      onChange={(e) => setPhoto(e.target.value)} 
-      placeholder='Photo (URL)' />
-    <NewHotel 
-      placeholder='Capacity' 
-      onChange={(e) => setCapacity(e.target.value)} 
-      />
-      
-    <NewHotel 
-      placeholder='City'
-      onChange={(e) => setCity(e.target.value)} 
-    />
-    <NewHotelButton 
-    />
-    </form>
+      <form className='create_form' onSubmit={handleSubmit}>
+        <NewHotel
+          onChange={(e) => setName(e.target.value)}
+          placeholder='Holtel Name' />
+        <NewHotel
+          onChange={(e) => setPhoto(e.target.value)}
+          placeholder='Photo (URL)' />
+        <NewHotel
+          placeholder='Capacity'
+          onChange={(e) => setCapacity(e.target.value)}
+        />
+
+        <NewHotel
+          placeholder='City'
+          onChange={(e) => setCity(e.target.value)}
+        />
+        <NewHotelButton
+        />
+      </form>
     </>
   )
 }
