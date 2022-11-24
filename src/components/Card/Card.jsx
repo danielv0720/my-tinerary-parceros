@@ -8,11 +8,13 @@ const Card = (props) => {
 
 
     return (
+        
         <div className='card-citie-hotel shadow1'>
             <img src={img} alt={name} className='img-card'/>
             <h4 className="title-card">{name}</h4>
             <LinkDetail to={path} className='btn-card'>More info</LinkDetail>
         </div>
+        
     )
 }
 

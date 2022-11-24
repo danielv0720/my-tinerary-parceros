@@ -291,6 +291,40 @@ margin-top: -50px;
   border: solid green;
 }
 
+
+.btn-mycities-edit{
+  text-decoration: none;
+  color: black;
+  background-color: rgb(131, 189, 216);
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid black;
+  font-size: 14px;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.descriptioncard{
+  padding: 5px;
+  
+}
+
+.cardmy{
+  padding: 10px;
+}
+
+.btn-mycities-delet{
+  text-decoration: none;
+  color: white;
+  background-color: red;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid black;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  margin-bottom: 5px;
+  
+
+  
+}
+
 @media screen and (max-width: 1068px){
   .container-title {
     margin-right: -800px;

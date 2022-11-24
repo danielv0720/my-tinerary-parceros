@@ -45,7 +45,7 @@ const DetailCity = () => {
         <div className="itineraies_class"><h3>Itineraries</h3>
       {itineraries && itineraries.map((item) => 
       <>
-       <li >{item.name}</li>
+       <li key={item.id}>{item.name}</li>
        <img  src={item.photo[0]} alt="imagen" />
        </>
         )}

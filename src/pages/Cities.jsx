@@ -8,13 +8,12 @@ import Checkbox from "../components/Checkbox/Checkbox";
 import cityData from "../data2/cityData.js";
 import Card from "../components/Card/Card";
 
-import axios from "axios";
 import { URL_API } from "../api/url";
 import { useDispatch, useSelector } from "react-redux";
 import { startSaveCitiesWithFilter } from "../redux/actions/cityAction";
 
 const Cities = () => {
-  const citiesState = useSelector(state => state.cities)
+  const citiesState = useSelector(state => state.cities.cities)
   
   const dispatch = useDispatch()
   const [valueCheck, setValueCheck] = useState([]);
@@ -64,8 +63,8 @@ const Cities = () => {
     <div className="w-100 cities d-flex align-center grow column">
       <div className="container-inputs p-10">
         <div className="d-flex center gap-5">
-          {arrContinent.map((item) => (
-            <Checkbox key={item} onChange={onHandlerChecked} continent={item} />
+          {arrContinent.map((item, i) => (
+            <Checkbox key={i} onChange={onHandlerChecked} continent={item} />
           ))}
         </div>
         <div className="d-flex gap-5">
