@@ -25,13 +25,18 @@ import SigninPage from './pages/SigninPage';
 
 import { HotelPage } from './components/DescriptionHotel/HotelPage';
 import NewHotelPage from './pages/NewHotelPage';
+
 import DetailCity  from './pages/DetailCity';
 import NewCity from './pages/NewCity/NewCity';
 import MyCities from './pages/MyCities';
+import MyItinerary from './pages/MyItinerary';
 import HotelDetail from './pages/HotelDetail/HotelDetail';
 import { useEffect } from 'react';
-import { startSaveCities } from './redux/actions/cityAction';
+import { startSaveCities, startSaveMyCities } from './redux/actions/cityAction';
 import { useDispatch } from 'react-redux';
+import UpdateCity from './components/UpdateCity/UpdateCity';
+import { startSaveMyItineraries } from './redux/actions/itineraryAcion';
+import UpdateItinerary from './components/UpdateItinery/UpdateItinerary';
 // Layout
 
 function App() {
@@ -39,8 +44,8 @@ function App() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(startSaveCities())
-
-    //Aqui
+    dispatch(startSaveMyCities("636e8c06ce259ab0ebdb9813"))
+    dispatch(startSaveMyItineraries("636e8c06ce259ab0ebdb9813"))
   }, [dispatch])
   
 
@@ -56,6 +61,9 @@ function App() {
         <Route path='/newhotel' element={<NewHotelPage/>}/>
         <Route path='/signin' element={<SigninPage/>}/>
         <Route path='/mycities' element={<MyCities/>}/>
+        <Route path='/myitineraries' element={<MyItinerary/>}/>
+        <Route path='/updatecity/:id' element={<UpdateCity/>}/>
+        <Route path='/updateitineraries/:id' element={<UpdateItinerary/>}/>
         <Route path='*' element={<NotFoundPage />}/>
         <Route path='/signUp' element={< SignUp/>}/>
         <Route path='/city/:idCity' element={<DetailCity/>}/>

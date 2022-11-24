@@ -1,82 +1,86 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import "../../App.css";
 import ButtonCity from "../../components/ButtonCity/ButtonCity";
-import "./NewCity.css";
-import Newcityinput from "./Newcityinput";
+import "./UpdateCity.css";
+import Newcityinput from "../../pages/NewCity/Newcityinput";
 import { URL_API } from "../../api/url";
 import axios from "axios";
 import Swal from 'sweetalert2'
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { startUpdateCity } from "../../redux/actions/cityAction";
 
 
-export default function NewCity() {
-  let navigate = useNavigate();
+export default function UpdateCity() {
+  const navigate = useNavigate();
+
+  const dispatch = useDispatch()
+  const { id } = useParams();
+
   const [name, setName] = useState("");
   const [photo, setPhoto] = useState("");
-  const [population, setPopulation] = useState(0);
+  const [population, setPopulation] = useState("");
   const [continent, setContinent] = useState("");
-  const [user, setUser] = useState("");
+  const [userId, setUserId] = useState("");
 
-  let dataNewCity = {
-    name: "",
-    photo: "",
-    population: 0,
-    continent: "",
-  }
+
+  useEffect(()=>{
+    console.log();
+    axios.get(`${URL_API}/api/cities/${id}`).then((response) => {
+      setName(response.data.name);
+      setPhoto(response.data.photo);
+      setPopulation(response.data.population);
+      setContinent(response.data.continent);
+      setUserId(response.data.userId)
+      console.log(response.data);
+    });
+  }, [id])
+
 
   const handlerClickForm = (e) => {
     e.preventDefault()
 
-    dataNewCity = {
+    const dataNewCity = {
       name: name,
-      photo: photo,
+      photo: [photo],
       population: population,
       continent: continent,
-      userId: user
+      userId: userId
     };
+    console.log(dataNewCity);
 
-    axios({
-      method: "post",
-      url: `${URL_API}/api/cities`,
-      data: dataNewCity,
-    })
-      .then((res) => {
-        console.log(res)
-        setName('')
-        if(res.data.success){
-          return navigate("/cities");
-        }else{
-          Swal.fire(res.data.message.join('  -    -   -    -   -'))
-        }
-      })
-      .catch((err) => console.log(err));
-
-
+    dispatch(startUpdateCity(id, dataNewCity))
+    navigate("/mycities")
   }
-
+  
   return (
     <div className="d-flex w-100 h-100vh space-evenly align-center">
       <form className="form-city" onSubmit={handlerClickForm}>
         <Newcityinput
           onChange={(e) => setName(e.target.value)}
           placeholder="Name"
+          value={name}
         />
         <Newcityinput
           onChange={(e) => setPhoto(e.target.value)}
           placeholder="Photo(URL)"
+          value={photo}
         />
         <Newcityinput
           onChange={(e) => setPopulation(e.target.value)}
           placeholder="Population"
+          value={population}
         />
         <Newcityinput
           onChange={(e) => setContinent(e.target.value)}
           placeholder="Continent"
+          value={continent}
         />
         <Newcityinput
-          onChange={(e) => setUser(e.target.value)}
+          onChange={(e) => setUserId(e.target.value)}
           placeholder="User ID"
+          value={userId}
         />
 
         <div className="container-button">
@@ -84,7 +88,7 @@ export default function NewCity() {
         </div>
       </form>
       <div className="city-created">
-        <h2>City Created Dinamic</h2>
+        <h2>Edit City</h2>
       </div>
     </div>
   )
