@@ -37,6 +37,10 @@ import { useDispatch } from 'react-redux';
 import UpdateCity from './components/UpdateCity/UpdateCity';
 import { startSaveMyItineraries } from './redux/actions/itineraryAcion';
 import UpdateItinerary from './components/UpdateItinery/UpdateItinerary';
+import MyHotel from './pages/MyHotel/MyHotel';
+import HotelEdit from './pages/HotelEdit/HotelEdit';
+import MyShows from './pages/MyShows/MyShows';
+import ShowEdit from './pages/ShowEdit/ShowEdit';
 // Layout
 
 function App() {
@@ -69,7 +73,10 @@ function App() {
         <Route path='/city/:idCity' element={<DetailCity/>}/>
         <Route path='/newcity' element={<NewCity/>}/>
         <Route path='/hotels/:idDetail' element={<HotelDetail/>}/>
-
+        <Route path='/hotelsAdmin' element={<MyHotel/>}/>
+        <Route path='/hotelsAdmin/:id' element={<HotelEdit/>}/>
+        <Route path='/showsUser' element={<MyShows/>}/>
+        <Route path='/showsUser/:id' element={<ShowEdit/>}/>
       </Routes>
     </Layout>
     
