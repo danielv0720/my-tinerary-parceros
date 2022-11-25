@@ -46,7 +46,6 @@ export default function NewHotelCreate() {
           Swal.fire({
             icon: 'success',
             title: res.data.message,
-            /* text: 'ENVIADO' */
           })
 
 
@@ -54,9 +53,7 @@ export default function NewHotelCreate() {
         }
         else {
           let toast = Swal.mixin({
-            toast: true,
-            /* position: 'center-end', */
-            
+            toast: true,         
             showConfirmButton: false,
             allowOutsideClick: true,
             didOpen: (toast) => {

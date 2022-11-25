@@ -12,7 +12,9 @@ const Card = (props) => {
         <div className='card-citie-hotel shadow1'>
             <img src={img} alt={name} className='img-card'/>
             <h4 className="title-card">{name}</h4>
+            <div className="container_btn">
             <LinkDetail to={path} className='btn-card'>More info</LinkDetail>
+            </div>
         </div>
         
     )
