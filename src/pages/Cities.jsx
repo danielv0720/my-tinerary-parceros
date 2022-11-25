@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from 'react-router-dom';
 
 import "../App.css";
 import "../pages/Cities.css";
@@ -9,44 +8,35 @@ import Checkbox from "../components/Checkbox/Checkbox";
 import cityData from "../data2/cityData.js";
 import Card from "../components/Card/Card";
 
-import axios from "axios";
 import { URL_API } from "../api/url";
+import { useDispatch, useSelector } from "react-redux";
+import { startSaveCitiesWithFilter } from "../redux/actions/cityAction";
 
 const Cities = () => {
-  const params = useParams();
-  console.log(params)
+  const citiesState = useSelector(state => state.cities.cities)
+  
+  const dispatch = useDispatch()
   const [valueCheck, setValueCheck] = useState([]);
-  const [cities, setCities] = useState([])
   const [valueSearch, setValueSearch] = useState("");
 
-  useEffect(() => {
-    axios.get(`${URL_API}/api/cities`).then((response) => {
-      console.log(response.data.response);
-      setCities(response.data.response)
-    });
-  }, []);
-
 
   useEffect(() => {
-    let path = `${URL_API}/api/cities?`;
+    let rutaBase = `${URL_API}/api/cities?`;
 
     if (valueCheck.length) {
       const valueCheckQuery = valueCheck.map(item => `continent=${item}`)
       const valueCheckQueryAll = valueCheckQuery.join("&");  
-      path = path.concat(valueCheckQueryAll)
+      rutaBase = rutaBase.concat(valueCheckQueryAll)
     }
 
     if (valueSearch) {
-      path = path.concat("&name=" + valueSearch)
+      rutaBase = rutaBase.concat("&name=" + valueSearch)
     }
 
-    console.log(path);
+    console.log(rutaBase);
 
-    axios.get(path).then((response) => {
-      console.log(response.data.response);
-      setCities(response.data.response)
-    });
-  }, [valueCheck, valueSearch]);
+    dispatch(startSaveCitiesWithFilter(rutaBase))
+  }, [valueCheck, valueSearch, dispatch]);
 
 
   const continents = cityData.map((city) => city.continent);
@@ -73,8 +63,8 @@ const Cities = () => {
     <div className="w-100 cities d-flex align-center grow column">
       <div className="container-inputs p-10">
         <div className="d-flex center gap-5">
-          {arrContinent.map((item) => (
-            <Checkbox key={item} onChange={onHandlerChecked} continent={item} />
+          {arrContinent.map((item, i) => (
+            <Checkbox key={i} onChange={onHandlerChecked} continent={item} />
           ))}
         </div>
         <div className="d-flex gap-5">
@@ -89,13 +79,13 @@ const Cities = () => {
         </div>
       </div>
       <div className="cards">
-        {cities.map((city) => {
+        {citiesState.map((city) => {
           return (
             <Card
               img={city.photo}
               name={city.name}
               key={city.id}
-              idCity={city._id}
+              path={`/city/${city._id}`}
             />
           );
         })}

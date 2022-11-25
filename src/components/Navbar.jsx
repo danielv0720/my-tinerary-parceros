@@ -26,9 +26,9 @@ const Navbar = () => {
             <IoMenuOutline className='icon-menu' onClick={handleClickMenu} />
             <ul className={active}>
                 <li className="list-style__none nav-list">
-                    <Link to='/' className="text-decoration__none p-20 text-center d-flex align-center fw-600 dark-light size-20p nav-link">Home</Link>
                 </li>
                 <li className="list-style__none nav-list">
+                    <Link to='/' className="text-decoration__none p-20 text-center d-flex align-center fw-600 dark-light size-20p nav-link">Home</Link>
                     <Link to='/cities' className="text-decoration__none p-20 text-center d-flex align-center fw-600 dark-light size-20p nav-link">Cities</Link>
                 </li>
                 <li className="list-style__none nav-list">

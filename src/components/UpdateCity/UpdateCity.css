@@ -1,0 +1,30 @@
+.form-city {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 300px;
+  height: 300px;
+  padding: 20px;
+  background-color: rgba(49, 73, 126, 0.733);
+  border-radius: 5px;
+}
+
+.input-text {
+  height: 20px;
+  width: 90%;
+  padding: 10px; 
+  border-radius: 5px;
+  border: none;
+}
+
+.btn-create {
+  height: 40px;
+  width: 130px;
+  padding: 10px;
+  border-radius: 5px;
+  border: solid 3px rgba(110, 109, 109, 0.568);
+  margin-top: 30px;
+  cursor: pointer;
+}

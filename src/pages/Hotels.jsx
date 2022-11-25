@@ -3,41 +3,36 @@ import React, {useEffect, useState}  from "react";
 import Card from "../components/Card/Card"
 import '../pages/Cities.css'
 import "../App.css";
-import axios from "axios";
-import { URL_API } from "../api/url";
-
+/* import axios from "axios";
+import { URL_API } from "../api/url"; */
+import hotelsActions from "../redux/actions/hotelsAction"; 
+import { useDispatch, useSelector } from "react-redux";
 
 const Hotels = () => {
-  const [data, setData] = useState([])
     const [ inputValue, setInputValue ] = useState('')
     const [ optionValue, setOptionValue ] = useState('')
-    
+
+
+    const dispatch = useDispatch()
+    const { getHotels } = hotelsActions  
+    const stateHotels = useSelector(state => state.hotels.hotels)
+
+    let dataValues = {
+      input: inputValue,
+      select: optionValue
+    }
+
+
   useEffect(()=>{
-    fetchApi()
+    dispatch(getHotels(dataValues))
   },[inputValue, optionValue])
-
-    
-    let fetchApi = () =>{
-      axios.get(`${URL_API}/api/hotels?name=${inputValue}&order=${optionValue}`)
-        .then(res => {
-            console.log(res)
-            setData(res.data.response)
-            console.log(data)
-        })
-        .catch(err => console.log(err))
-      }
-     
-
-    
-    console.log(inputValue)
-    console.log(optionValue)
-
+ 
   return (
    
       <div className="w-100 cities d-flex align-center grow column" >
        <div className="container-inputs p-10">
           <div className="d-flex center gap-5">
-            <select name="select" id="" onChange={ (e) => setOptionValue(e.target.value) } >
+            <select name="select" id="" onChange={ (e) => setOptionValue(e.target.value)}>
               <option value="Order by">Order By</option>
               <option value="Asc">Asc</option>
               <option value="Desc">Desc</option>
@@ -48,8 +43,8 @@ const Hotels = () => {
           </div>
        </div> 
        <div className="cards">
-        {data.map(hotel => { 
-           return <Card img={hotel.photo[0]} name={hotel.name} key={hotel._id} path={`/hotels/${hotel._id}`} />
+        {stateHotels.map((hotel, index) => { 
+           return <Card img={hotel.photo[0]} name={hotel.name} key={index} path={`/hotels/${hotel._id}`} />
         } )}
       </div> 
     </div>

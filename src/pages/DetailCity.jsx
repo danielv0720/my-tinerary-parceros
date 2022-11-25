@@ -45,7 +45,7 @@ const DetailCity = () => {
         <div className="itineraies_class"><h3>Itineraries</h3>
       {itineraries && itineraries.map((item) => 
       <>
-       <li >{item.name}</li>
+       <li key={item.id}>{item.name}</li>
        <img  src={item.photo[0]} alt="imagen" />
        </>
         )}
@@ -55,15 +55,3 @@ const DetailCity = () => {
 };
 
 export default DetailCity;
-
-/* 
-    <div className="d-flex center align-center w-100 h-100vh">
-        <div className="cardDetail">
-            <img  className='img-detail' src={filter.photo} alt='imagen' />
-            <h3>algo que se yo</h3>
-            <p><b>Continent: </b> dsadkasdas</p>
-            <p><b>Population: </b> sdadkasdaksdapo</p>
-        </div>
-    </div>
-
-*/
