@@ -1,5 +1,5 @@
 export const types = {
-  loadCities: "[Cites] load cities",
+  loadCities: "[Cites] load cities 2",
   loadMyCities: "[MyCites] load my cities",
   deleteCity: "[MyCites] delete my city",
   updateCity: "[MyCites] update my city",

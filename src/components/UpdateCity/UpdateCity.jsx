@@ -17,7 +17,6 @@ export default function UpdateCity() {
 
   const dispatch = useDispatch()
   const { id } = useParams();
-
   const [name, setName] = useState("");
   const [photo, setPhoto] = useState("");
   const [population, setPopulation] = useState("");
@@ -29,7 +28,7 @@ export default function UpdateCity() {
     console.log();
     axios.get(`${URL_API}/api/cities/${id}`).then((response) => {
       setName(response.data.name);
-      setPhoto(response.data.photo);
+      setPhoto(response.data.photo[0]);
       setPopulation(response.data.population);
       setContinent(response.data.continent);
       setUserId(response.data.userId)
