@@ -31,12 +31,13 @@ import NewCity from './pages/NewCity/NewCity';
 import MyCities from './pages/MyCities';
 import MyItinerary from './pages/MyItinerary';
 import HotelDetail from './pages/HotelDetail/HotelDetail';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { startSaveCities, startSaveMyCities } from './redux/actions/cityAction';
 import { useDispatch } from 'react-redux';
 import UpdateCity from './components/UpdateCity/UpdateCity';
 import { startSaveMyItineraries } from './redux/actions/itineraryAcion';
 import UpdateItinerary from './components/UpdateItinery/UpdateItinerary';
+import { ProtectedRoute } from './components/ProtectRoute/ProtectedRoute';
 // Layout
 
 function App() {
@@ -48,9 +49,21 @@ function App() {
     dispatch(startSaveMyItineraries("636e8c06ce259ab0ebdb9813"))
   }, [dispatch])
   
+  const [user,setUser]= useState(null)
+
+const login =()=>{
+  setUser({
+    id:1,
+    name: "daniel",
+    role:["admin"]
+  })
+}
+
+const logout =()=>setUser(null)
 
   return (
       <Layout>
+        {user ? <button onClick={logout}>logout</button>: <button onClick={login}>login</button>}
       <ScrolltoTop/>
       <AutoToTop />
       <Routes>
@@ -58,17 +71,38 @@ function App() {
         <Route path='/cities' element={<Cities />}/>
         <Route path='/hotels' element={<Hotels />}/>
         <Route path='/hotel/:id' element={<HotelPage />}/>
-        <Route path='/newhotel' element={<NewHotelPage/>}/>
         <Route path='/signin' element={<SigninPage/>}/>
-        <Route path='/mycities' element={<MyCities/>}/>
-        <Route path='/myitineraries' element={<MyItinerary/>}/>
-        <Route path='/updatecity/:id' element={<UpdateCity/>}/>
-        <Route path='/updateitineraries/:id' element={<UpdateItinerary/>}/>
         <Route path='*' element={<NotFoundPage />}/>
         <Route path='/signUp' element={< SignUp/>}/>
         <Route path='/city/:idCity' element={<DetailCity/>}/>
-        <Route path='/newcity' element={<NewCity/>}/>
         <Route path='/hotels/:idDetail' element={<HotelDetail/>}/>
+        <Route path='/updatecity/:id' element={<UpdateCity/>}/>
+        <Route path='/updateitineraries/:id' element={<UpdateItinerary/>}/>
+
+        
+        <Route path='/mycities' element={
+          <ProtectedRoute isAllowed={!!user && user.role.includes('admin')} reDirect={'/'}>
+            <MyCities/>
+            </ProtectedRoute>
+            }/>
+          
+        <Route path='/myitineraries' element={
+        <ProtectedRoute isAllowed={!!user && user.role.includes('admin')} reDirect={'/'}>
+        <MyItinerary/>
+        </ProtectedRoute>
+        }/>
+
+        <Route path='/newcity' element={
+          <ProtectedRoute isAllowed={!!user && user.role.includes('admin')} reDirect={'/'}>
+        <NewCity/>
+        </ProtectedRoute>
+        }/>
+        <Route path='/newhotel' element={
+        <ProtectedRoute isAllowed={!!user && user.role.includes('admin')} reDirect={'/'}>
+        <NewHotelPage/>
+        </ProtectedRoute>
+        }/>
+        
 
       </Routes>
     </Layout>
