@@ -37,8 +37,15 @@ import { useDispatch } from 'react-redux';
 import UpdateCity from './components/UpdateCity/UpdateCity';
 import { startSaveMyItineraries } from './redux/actions/itineraryAcion';
 import UpdateItinerary from './components/UpdateItinery/UpdateItinerary';
+
 import { ProtectedRoute } from './components/ProtectRoute/ProtectedRoute';
-// Layout
+
+import MyHotel from './pages/MyHotel/MyHotel';
+import HotelEdit from './pages/HotelEdit/HotelEdit';
+import MyShows from './pages/MyShows/MyShows';
+import ShowEdit from './pages/ShowEdit/ShowEdit';
+
+
 
 function App() {
 
@@ -76,6 +83,7 @@ const logout =()=>setUser(null)
         <Route path='/signUp' element={< SignUp/>}/>
         <Route path='/city/:idCity' element={<DetailCity/>}/>
         <Route path='/hotels/:idDetail' element={<HotelDetail/>}/>
+
         <Route path='/updatecity/:id' element={<UpdateCity/>}/>
         <Route path='/updateitineraries/:id' element={<UpdateItinerary/>}/>
 
@@ -103,6 +111,12 @@ const logout =()=>setUser(null)
         </ProtectedRoute>
         }/>
         
+
+
+        <Route path='/hotelsAdmin' element={<MyHotel/>}/>
+        <Route path='/hotelsAdmin/:id' element={<HotelEdit/>}/>
+        <Route path='/showsUser' element={<MyShows/>}/>
+        <Route path='/showsUser/:id' element={<ShowEdit/>}/>
 
       </Routes>
     </Layout>
