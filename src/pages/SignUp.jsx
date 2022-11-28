@@ -52,7 +52,11 @@ const SignUp = () => {
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
+
       confirmButtonText: "Yes, registre it!",
+
+      confirmButtonText: "Yes, delete it!",
+
     }).then((result) => {
       if (result.isConfirmed) {
         axios({
@@ -65,7 +69,11 @@ const SignUp = () => {
             setName("");
             if (res.data.success) {
               Swal.fire(
+
                 "user created!",
+
+                "usuario creado!",
+
                 "verification message was sent to your email ",
                 "success"
               );
