@@ -36,7 +36,7 @@ let data_hotel = {
     axios({
       method: 'post',
       url: `${URL_API}/api/hotels`,
-      data: data_hotel
+      data: data_hotel,
     })
     .then(res => console.log(res))
     .catch(err => console.log(err))
