@@ -71,7 +71,7 @@ export const startDeleteMyCity = (id) => {
       confirmButtonText: 'Yes, delete it!'
     }).then(async (result) => {
       if (result.isConfirmed) {
-        const response = (await axios.delete(`${URL_API}/api/cities/${id}`))
+        const response = (await axios.delete(`${URL_API}/api/cities/${id}`, { headers: { token: localStorage.getItem("token")} },))
         console.log(response);
         dispatch(deleteMycity(id))
         
@@ -104,6 +104,7 @@ export const startUpdateCity = (id, dataNewCity) => {
       method: "put",
       url: `${URL_API}/api/cities/${id}`,
       data: dataNewCity,
+      headers: { token: localStorage.getItem("token") },
     })
 
 

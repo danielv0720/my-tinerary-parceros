@@ -38,6 +38,15 @@ export default function NewHotelCreate() {
       userId: "636d864fec3e352a19f44e9f"
     }
 
+
+    axios({
+      method: 'post',
+      url: `${URL_API}/api/hotels`,
+      data: data_hotel,
+    })
+    .then(res => console.log(res))
+    .catch(err => console.log(err))
+
     axios.post(`${URL_API}/api/hotels`, data_hotel)
       .then(res => {
         console.log(res.data.success)
@@ -79,6 +88,7 @@ export default function NewHotelCreate() {
       .catch(err => {
         console.log(err)
       })
+
 
   }
 
