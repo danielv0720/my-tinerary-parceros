@@ -8,6 +8,7 @@ const initialState = {
     name: '',
     token: '',
     role: '',
+    id: '',
     logged: false
 }
 
@@ -26,8 +27,11 @@ const userReducer = createReducer( initialState, (builder) => {
                 photo: user.photo,
                 logged: user.logged,
                 token: user.token,
-                rol: user.rol
+                role: user.role,
+                id: user._id
             }
+
+            console.log(newState.id)
 
             return newState
         } else {

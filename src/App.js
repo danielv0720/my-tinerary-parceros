@@ -44,6 +44,7 @@ import MyHotel from './pages/MyHotel/MyHotel';
 import HotelEdit from './pages/HotelEdit/HotelEdit';
 import MyShows from './pages/MyShows/MyShows';
 import ShowEdit from './pages/ShowEdit/ShowEdit';
+import Profile from './pages/Profile/Profile';
 
 
 
@@ -83,6 +84,7 @@ const logout =()=>setUser(null)
         <Route path='/signUp' element={< SignUp/>}/>
         <Route path='/city/:idCity' element={<DetailCity/>}/>
         <Route path='/hotels/:idDetail' element={<HotelDetail/>}/>
+        <Route path='/profile' element={ <Profile/> } />
 
         <Route path='/updatecity/:id' element={<UpdateCity/>}/>
         <Route path='/updateitineraries/:id' element={<UpdateItinerary/>}/>
