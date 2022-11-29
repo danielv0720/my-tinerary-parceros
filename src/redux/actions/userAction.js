@@ -1,5 +1,9 @@
 
 import { types } from "../types/types";
+import { createAsyncThunk } from "@reduxjs/toolkit";
+import { URL_API } from "../../api/url";
+import axios from "axios";
+import Swal from "sweetalert2";
 
 
 export const login = (user) => ({
@@ -12,10 +16,6 @@ export const logout = () => ({
   type: types.logout
 })
 
-import { createAsyncThunk } from "@reduxjs/toolkit";
-import { URL_API } from "../../api/url";
-import axios from "axios";
-import Swal from "sweetalert2";
 
 const signIn = createAsyncThunk('signIn', async (data)=>{
 
