@@ -45,17 +45,30 @@ import HotelEdit from './pages/HotelEdit/HotelEdit';
 import MyShows from './pages/MyShows/MyShows';
 import ShowEdit from './pages/ShowEdit/ShowEdit';
 import Profile from './pages/Profile/Profile';
-
+import userActions from './redux/actions/userAction';
+import ProfileEdit from './pages/ProfileEdit/ProfileEdit';
 
 
 function App() {
 
+  const { reEnter } = userActions
+
   const dispatch = useDispatch();
+  let token = JSON.parse(localStorage.getItem('token'))
+
   useEffect(() => {
+    
+    console.log( "TOKEN1", token)
+    if(token){
+      dispatch(reEnter(token))
+    }
+
     dispatch(startSaveCities())
     dispatch(startSaveMyCities("636e8c06ce259ab0ebdb9813"))
     dispatch(startSaveMyItineraries("636e8c06ce259ab0ebdb9813"))
-  }, [dispatch])
+   
+    
+  }, [dispatch, token])
   
   const [user,setUser]= useState(null)
 
@@ -85,7 +98,7 @@ const logout =()=>setUser(null)
         <Route path='/city/:idCity' element={<DetailCity/>}/>
         <Route path='/hotels/:idDetail' element={<HotelDetail/>}/>
         <Route path='/profile' element={ <Profile/> } />
-
+        <Route path='/profile/:id' element={ <ProfileEdit/> } />
         <Route path='/updatecity/:id' element={<UpdateCity/>}/>
         <Route path='/updateitineraries/:id' element={<UpdateItinerary/>}/>
 
