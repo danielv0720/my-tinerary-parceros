@@ -87,14 +87,14 @@ function App() {
   useEffect(() => {
     
     console.log( "TOKEN1", token)
-    if(token){
-      dispatch(reEnter(token))
-    }
-
+    
     dispatch(startSaveCities());
     dispatch(startSaveMyCities("636e8c06ce259ab0ebdb9813"));
     dispatch(startSaveMyItineraries("636e8c06ce259ab0ebdb9813"));
-   
+    
+    if(token){
+      dispatch(reEnter(token))
+    }
     
   }, [dispatch, token]);
 
