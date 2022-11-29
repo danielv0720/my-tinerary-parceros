@@ -41,17 +41,16 @@ import { login, logout } from "./redux/actions/userAction";
 import Swal from "sweetalert2";
 import NewItinerary from "./pages/NewItinerary/NewItinerary";
 // Layout
+/* 
+import Cities from './pages/Cities'; */
+/* import Hotels from './pages/Hotels';//  */
+/* import Layout from './layout/Layout'; */
+/* import NotFoundPage from './pages/NotFoundPage' */
 
-import Home from './pages/Home';
-import Cities from './pages/Cities';
-import Hotels from './pages/Hotels';// 
-import Layout from './layout/Layout';
-import NotFoundPage from './pages/NotFoundPage'
+/* import SignUp from './pages/SignUp'; */
+/* import SigninPage from './pages/SigninPage'; */
 
-import SignUp from './pages/SignUp';
-import SigninPage from './pages/SigninPage';
-
-import { HotelPage } from './components/DescriptionHotel/HotelPage';
+/* import { HotelPage } from './components/DescriptionHotel/HotelPage';
 import NewHotelPage from './pages/NewHotelPage';
 
 import DetailCity  from './pages/DetailCity';
@@ -65,8 +64,8 @@ import { useDispatch } from 'react-redux';
 import UpdateCity from './components/UpdateCity/UpdateCity';
 import { startSaveMyItineraries } from './redux/actions/itineraryAcion';
 import UpdateItinerary from './components/UpdateItinery/UpdateItinerary';
-
-import { ProtectedRoute } from './components/ProtectRoute/ProtectedRoute';
+ */
+/* import { ProtectedRoute } from './components/ProtectRoute/ProtectedRoute'; */
 
 import MyHotel from './pages/MyHotel/MyHotel';
 import HotelEdit from './pages/HotelEdit/HotelEdit';
@@ -149,7 +148,7 @@ function App() {
       <AutoToTop />
       <Routes>
 
-        <Route path="/" exact element={<Home />} />
+        <Route path="/" exact element={<Home/>} />
         <Route path="/cities" element={<Cities />} />
         <Route path="/hotels" element={<Hotels />} />
         <Route path="/hotel/:id" element={<HotelPage />} />

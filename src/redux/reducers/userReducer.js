@@ -13,7 +13,7 @@ const initialState = {
     id: '',
     logged: false
 }
-export const userReducer = (state = {}, action)=> {
+/* export const userReducer = (state = {}, action)=> {
   switch (action.type) {
     case types.login:
       return {
@@ -28,7 +28,7 @@ export const userReducer = (state = {}, action)=> {
     default:
       return state;
   }
-}
+} */
 
 
 
