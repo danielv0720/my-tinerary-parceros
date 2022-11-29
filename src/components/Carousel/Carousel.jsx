@@ -13,7 +13,7 @@ export default function Carousel(props) {
             data.map((d, i) => {
               if (i < 4) {
                 return (
-                  <div className="card1">
+                  <div  key= {i} className="card1">
                     <div className="capa">
                       <h3>{d.name}</h3>
                     </div>
