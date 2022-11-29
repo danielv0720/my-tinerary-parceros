@@ -44,10 +44,18 @@ const Navbar = () => {
                     { isAuth && isAdmin && <Link to='/newhotel' className="text-decoration__none p-20 text-center d-flex align-center fw-600 dark-light size-20p nav-link">New Hotel</Link> }
                 </li>
                 <li className="list-style__none nav-list  btn_sig">
+
                     { !isAuth && isAdmin && <Link to='/signin' className="text-decoration__none p-20 text-center d-flex align-center fw-600  size-20p nav-link signin">Signin</Link> }
                 </li>
                 <li className="list-style__none nav-list">
                     { !isAuth && isAdmin && <Link to='/signUp' className="text-decoration__none p-20 text-center d-flex align-center fw-600  size-20p nav-link signUp">Sign Up</Link> }
+
+                    { !isAuth && !isAdmin && <Link to='/signin' className="text-decoration__none p-20 text-center d-flex align-center fw-600  size-20p nav-link signin">Signin</Link> }
+                </li>
+                <li className="list-style__none nav-list">
+                 
+                    { !isAuth && !isAdmin && <Link to='/signUp' className="text-decoration__none p-20 text-center d-flex align-center fw-600  size-20p nav-link signUp">Sign Up</Link> }
+
                 </li>
             </ul>
             

@@ -46,7 +46,7 @@ export default function NewHotelCreate() {
     })
     .then(res => console.log(res))
     .catch(err => console.log(err))
-    
+
 
     axios.post(`${URL_API}/api/hotels`, data_hotel)
       .then(res => {
