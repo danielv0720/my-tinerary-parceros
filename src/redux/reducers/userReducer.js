@@ -1,7 +1,19 @@
 
 import { types } from "../types/types";
+import { createReducer } from "@reduxjs/toolkit";
+import userActions from "../actions/userAction";
 
-export const userReducer = (state = {}, action)=> {
+const { signIn, reEnter } = userActions
+
+const initialState = {
+    photo: '',
+    name: '',
+    token: '',
+    role: '',
+    id: '',
+    logged: false
+}
+/* export const userReducer = (state = {}, action)=> {
   switch (action.type) {
     case types.login:
       return {
@@ -16,21 +28,9 @@ export const userReducer = (state = {}, action)=> {
     default:
       return state;
   }
-}
+} */
 
-import { createReducer } from "@reduxjs/toolkit";
-import userActions from "../actions/userAction";
 
-const { signIn } = userActions
-
-const initialState = {
-    photo: '',
-    name: '',
-    token: '',
-    role: '',
-    id: '',
-    logged: false
-}
 
 const userReducer = createReducer( initialState, (builder) => {
     builder.addCase(signIn.fulfilled, (state, action) => {
@@ -40,7 +40,8 @@ const userReducer = createReducer( initialState, (builder) => {
         if(success){
             let { user,token } = response
             localStorage.setItem('token', JSON.stringify(token))
-
+            localStorage.setItem('id', user._id)
+            console.log("TOKEN2", token)
             let newState = {
                 ...state,
                 name: user.name,
@@ -50,8 +51,8 @@ const userReducer = createReducer( initialState, (builder) => {
                 role: user.role,
                 id: user._id
             }
-
-            console.log(newState.id)
+            console.log(user)
+            console.log(newState)
 
             return newState
         } else {
@@ -63,7 +64,32 @@ const userReducer = createReducer( initialState, (builder) => {
             return newState
         }
     } )
+    .addCase(reEnter.fulfilled, (state, action)=>{
+        const { success, res } = action.payload
+        if(success){
+            let { user, token } = res
+            let newState = {
+                ...state,
+                name: user.name,
+                photo: user.foto,
+                id: user._id,
+                logged: user.logged,
+                token: token
+            }
+            return newState
+        }else {
+            let newState = {
+                ...state,
+                message: res
+            }
+            return newState
+        }
+
+    })
 } )
+
+
+
 
 export default userReducer
 

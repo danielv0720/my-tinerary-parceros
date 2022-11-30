@@ -8,3 +8,15 @@
 .container-profile {
     height: auto;
 }
+
+.btn-edit {
+    width: 150px;
+    padding: 10px 15px;
+    border: solid 4px slateblue;
+    background-color: darkcyan;
+    color: aliceblue;
+    font-weight: 600;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 10px;
+    cursor: pointer;
+}

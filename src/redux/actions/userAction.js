@@ -1,5 +1,9 @@
 
 import { types } from "../types/types";
+import { createAsyncThunk } from "@reduxjs/toolkit";
+import { URL_API } from "../../api/url";
+import axios from "axios";
+import Swal from "sweetalert2";
 
 
 export const login = (user) => ({
@@ -12,10 +16,6 @@ export const logout = () => ({
   type: types.logout
 })
 
-import { createAsyncThunk } from "@reduxjs/toolkit";
-import { URL_API } from "../../api/url";
-import axios from "axios";
-import Swal from "sweetalert2";
 
 const signIn = createAsyncThunk('signIn', async (data)=>{
 
@@ -32,6 +32,7 @@ const signIn = createAsyncThunk('signIn', async (data)=>{
                 icon: 'success'
             })
 
+
         } else {
             Swal.fire({
                 title: user.data.message.join('\n \n'),
@@ -44,6 +45,31 @@ const signIn = createAsyncThunk('signIn', async (data)=>{
         }
 
     } catch (err) {
+       // console.log(err.response)
+        return {
+            success: false,
+            response: err.data.response.message
+        }
+    }
+})
+
+
+const reEnter = createAsyncThunk('reEnter', async (token) => {
+    let endpoint = `${URL_API}/auth/token`
+    let headers = { headers: { 'Authorization' : `Bearer ${token}` } } 
+    try {
+        let user = await axios.post(endpoint, null, headers)
+        console.log(user.data.response)
+        console.log(user.data)
+        return {
+            success: true,
+            res: {
+               user: user.data.response,
+               token
+            }
+        }
+
+    } catch (err) {
         console.log(err.response)
         return {
             success: false,
@@ -53,8 +79,10 @@ const signIn = createAsyncThunk('signIn', async (data)=>{
 })
 
 const userActions = {
-    signIn
+    signIn,
+    reEnter
 }
 
-export default userActions
 
+
+export default userActions

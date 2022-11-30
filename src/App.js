@@ -41,17 +41,16 @@ import { login, logout } from "./redux/actions/userAction";
 import Swal from "sweetalert2";
 import NewItinerary from "./pages/NewItinerary/NewItinerary";
 // Layout
+/* 
+import Cities from './pages/Cities'; */
+/* import Hotels from './pages/Hotels';//  */
+/* import Layout from './layout/Layout'; */
+/* import NotFoundPage from './pages/NotFoundPage' */
 
-import Home from './pages/Home';
-import Cities from './pages/Cities';
-import Hotels from './pages/Hotels';// 
-import Layout from './layout/Layout';
-import NotFoundPage from './pages/NotFoundPage'
+/* import SignUp from './pages/SignUp'; */
+/* import SigninPage from './pages/SigninPage'; */
 
-import SignUp from './pages/SignUp';
-import SigninPage from './pages/SigninPage';
-
-import { HotelPage } from './components/DescriptionHotel/HotelPage';
+/* import { HotelPage } from './components/DescriptionHotel/HotelPage';
 import NewHotelPage from './pages/NewHotelPage';
 
 import DetailCity  from './pages/DetailCity';
@@ -65,25 +64,39 @@ import { useDispatch } from 'react-redux';
 import UpdateCity from './components/UpdateCity/UpdateCity';
 import { startSaveMyItineraries } from './redux/actions/itineraryAcion';
 import UpdateItinerary from './components/UpdateItinery/UpdateItinerary';
-
-import { ProtectedRoute } from './components/ProtectRoute/ProtectedRoute';
+ */
+/* import { ProtectedRoute } from './components/ProtectRoute/ProtectedRoute'; */
 
 import MyHotel from './pages/MyHotel/MyHotel';
 import HotelEdit from './pages/HotelEdit/HotelEdit';
 import MyShows from './pages/MyShows/MyShows';
 import ShowEdit from './pages/ShowEdit/ShowEdit';
 import Profile from './pages/Profile/Profile';
+import userActions from './redux/actions/userAction';
+import ProfileEdit from './pages/ProfileEdit/ProfileEdit';
 
 
 
 
 function App() {
+  const { reEnter } = userActions
+
   const dispatch = useDispatch();
+  let token = JSON.parse(localStorage.getItem('token'))
+
   useEffect(() => {
+    
+    console.log( "TOKEN1", token)
+    
     dispatch(startSaveCities());
     dispatch(startSaveMyCities("636e8c06ce259ab0ebdb9813"));
     dispatch(startSaveMyItineraries("636e8c06ce259ab0ebdb9813"));
-  }, [dispatch]);
+    
+    if(token){
+      dispatch(reEnter(token))
+    }
+    
+  }, [dispatch, token]);
 
   const [user, setUser] = useState(null);
 
@@ -135,7 +148,7 @@ function App() {
       <AutoToTop />
       <Routes>
 
-        <Route path="/" exact element={<Home />} />
+        <Route path="/" exact element={<Home/>} />
         <Route path="/cities" element={<Cities />} />
         <Route path="/hotels" element={<Hotels />} />
         <Route path="/hotel/:id" element={<HotelPage />} />
@@ -216,7 +229,7 @@ function App() {
         <Route path='/city/:idCity' element={<DetailCity/>}/>
         <Route path='/hotels/:idDetail' element={<HotelDetail/>}/>
         <Route path='/profile' element={ <Profile/> } />
-
+        <Route path='/profile/:id' element={ <ProfileEdit/> } />
         <Route path='/updatecity/:id' element={<UpdateCity/>}/>
         <Route path='/updateitineraries/:id' element={<UpdateItinerary/>}/>
 

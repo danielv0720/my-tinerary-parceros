@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { URL_API } from '../../api/url'
-
+import { Link as LinkRouter } from 'react-router-dom'
 
 import '../../pages/Profile/ProfileStyle.css'
 import '../../App.css'
@@ -9,16 +9,20 @@ import '../../App.css'
 const Profile = () => {
 
     const [ data, setData ] = useState([])
-    const id = "63836e7978735a0b909cbc69"
-    console.log( 'id', id)
+    const idUser = localStorage.getItem('id')
+
+
+    console.log( 'id', idUser)
     useEffect(() => {
-        axios.get(`${URL_API}/auth/me/${id}`)
+        if(idUser){
+            axios.get(`${URL_API}/auth/me/${idUser}`)
             .then( res => {
                 setData(res.data.res)
-                console.log(res.data.res)
+                console.log( "DATA:  ", res.data.res)
             } )
             .catch(err => console.log(err))
-    }, [id])
+        }
+    }, [idUser])
 
 
   return (
@@ -28,8 +32,10 @@ const Profile = () => {
         <p>{ data.email} </p>
         <p>{data.age}</p>
         <p>{data.role}</p>
+        <LinkRouter to={`/profile/${data._id}`} className='btn-edit' >Edit Profile</LinkRouter>
     </div>
   )
 }
+
 
 export default Profile
