@@ -17,17 +17,19 @@ const getShowUser = createAsyncThunk('getShowUser', async (id) => {
     }
 })
 
-const deleteShow = createAsyncThunk('deleteShow', async (id) => {
-    let apiUri = `${URL_API}/api/shows/${id}`
-
+const deleteShow = createAsyncThunk('deleteShow', async (data) => {
+    let apiUri = `${URL_API}/api/shows/${data.id}`
     try {
-        const res = axios.delete(apiUri)
+
+        let headers = { headers : { 'Authorization' : `Bearer ${data.token}` } } 
+        const res =  await axios.delete(apiUri, headers)
+        console.log( "success", res.data.success)
         if(res.data.success){
             Swal.fire({
                 title: 'Deleted successfully',
                 icon: 'success'
             })
-            return { id: id, res: res.data }
+            return { id: data.id, res: res.data }
         } else {
             Swal.fire({
                 title: 'The hotel could not be deleted',

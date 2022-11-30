@@ -32,16 +32,16 @@ const signIn = createAsyncThunk('signIn', async (data)=>{
                 icon: 'success'
             })
 
+            return {
+                success: true,
+                response: user.data.response
+            }
 
         } else {
             Swal.fire({
                 title: user.data.message.join('\n \n'),
                 icon: 'error'
             })
-        }
-        return {
-            success: true,
-            response: user.data.response
         }
 
     } catch (err) {
@@ -59,12 +59,12 @@ const reEnter = createAsyncThunk('reEnter', async (token) => {
     let headers = { headers: { 'Authorization' : `Bearer ${token}` } } 
     try {
         let user = await axios.post(endpoint, null, headers)
-        console.log(user.data.response)
-        console.log(user.data)
+        console.log( "Response REENTER", user.data.response)
+        console.log("User data", user.data)
         return {
             success: true,
             res: {
-               user: user.data.response,
+               user: user.data.response.user,
                token
             }
         }
@@ -73,7 +73,7 @@ const reEnter = createAsyncThunk('reEnter', async (token) => {
         console.log(err.response)
         return {
             success: false,
-            response: err.data.response.message
+            response: err.response.data.message
         }
     }
 })

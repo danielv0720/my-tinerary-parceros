@@ -12,22 +12,22 @@
     display: grid;
     gap: 10px;
     grid-auto-rows: 22rem;
-    /* padding: 10px; */
     place-content: center;
 }
 
 .container-btn {
     display: flex;
-    gap: 5px;
+    padding: 15px;
 }
 
 .btn-edit {
-    padding: 5px 10px;
+    padding: 5px;
     background-color: cadetblue;
     color: aliceblue;
     text-decoration: none;
-    width: 30px;
     font-weight: 600;
+    width: 20px;
+    height: 15px;
 }
 
 .btn_delete {
@@ -35,6 +35,20 @@
     color: aliceblue;
     border: none;
     cursor: pointer;
+    width: 80px;
+    height: 40px;
+}
+
+.btn-new_show {
+    width: 90px;
+    padding: 5px;
+    background-color: darkseagreen;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
 }
 
 @media screen and (min-width: 768px){
