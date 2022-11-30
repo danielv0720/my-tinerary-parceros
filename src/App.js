@@ -39,6 +39,8 @@ import { ProtectedRoute } from "./components/ProtectRoute/ProtectedRoute";
 import { login, logout } from "./redux/actions/userAction";
 import Swal from "sweetalert2";
 import NewItinerary from "./pages/NewItinerary/NewItinerary";
+import NewReaction from "./pages/Newreaction/NewReaction";
+
 // Layout
 
 function App() {
@@ -109,7 +111,7 @@ function App() {
         <Route path="/hotels/:idDetail" element={<HotelDetail />} />
         <Route path="/updatecity/:id" element={<UpdateCity />} />
         <Route path="/updateitineraries/:id" element={<UpdateItinerary />} />
-
+        
         <Route
           path="/mycities"
           element={
@@ -168,6 +170,18 @@ function App() {
             </ProtectedRoute>
           }
         />
+
+<Route 
+path="/newreaction" 
+element={
+  <ProtectedRoute
+  isAllowed={!!user && user.role.includes("admin")}
+  reDirect={"/"}
+>
+<NewReaction/>
+</ProtectedRoute>
+}
+/>
       </Routes>
     </Layout>
   );
