@@ -74,19 +74,20 @@ import ShowEdit from './pages/ShowEdit/ShowEdit';
 import Profile from './pages/Profile/Profile';
 import userActions from './redux/actions/userAction';
 import ProfileEdit from './pages/ProfileEdit/ProfileEdit';
+import NewShow from "./pages/NewShow/NewShow";
 
 
 
 
 function App() {
   const { reEnter } = userActions
-
+  
   const dispatch = useDispatch();
-  let token = JSON.parse(localStorage.getItem('token'))
-
+  
   useEffect(() => {
+    let token = localStorage.getItem('token')
     
-    console.log( "TOKEN1", token)
+    console.log( "TOKEN APP", token)
     
     dispatch(startSaveCities());
     dispatch(startSaveMyCities("636e8c06ce259ab0ebdb9813"));
@@ -96,7 +97,7 @@ function App() {
       dispatch(reEnter(token))
     }
     
-  }, [dispatch, token]);
+  }, [dispatch]);
 
   const [user, setUser] = useState(null);
 
@@ -263,7 +264,7 @@ function App() {
         <Route path='/hotelsAdmin/:id' element={<HotelEdit/>}/>
         <Route path='/showsUser' element={<MyShows/>}/>
         <Route path='/showsUser/:id' element={<ShowEdit/>}/>
-
+        <Route path='/newShow' element={<NewShow/>}/>
 
       </Routes>
     </Layout>
