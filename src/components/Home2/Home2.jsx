@@ -20,7 +20,10 @@ export default function Home2() {
     } else {
       setTipoImagen("cities");
     }
-    console.log("Se ejecuto next");
+
+
+/*     console.log("Se ejecuto next"); */
+
     clearInterval(id);
   }, [id, tipoImagen]);
 
@@ -28,7 +31,10 @@ export default function Home2() {
   useEffect(() => {
     let idInterval = setInterval(() => {
       next();
-      console.log("pasaron 5 segundos");
+
+
+/*       console.log("pasaron 5 segundos"); */
+
     }, 5000);
 
     setId(idInterval);
@@ -43,7 +49,6 @@ export default function Home2() {
     } else {
       setTipoImagen("cities");
     }
-    console.log("Se ejecuto prev");
     clearInterval(id);
   };
 

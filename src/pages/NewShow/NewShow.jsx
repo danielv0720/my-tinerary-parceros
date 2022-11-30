@@ -1,16 +1,12 @@
-import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import React, { useState } from 'react'
+import axios from 'axios'
 import { URL_API } from '../../api/url'
 import Swal from 'sweetalert2'
-import axios from 'axios'
 
-import '../../App.css'
-import '../ShowEdit/ShowEdit.css'
+import '../../App'
+import '../NewShow/NewShow.css'
 
-const ShowEdit = () => {
-
-    const {id} = useParams() 
-    console.log("ID", id)
+const NewShow = () => {
 
     const [name, setName] = useState('')
     const [photo, setPhoto] = useState('')
@@ -18,35 +14,23 @@ const ShowEdit = () => {
     const [price, setPrice] = useState(0)
     const [description, setDescription] = useState('')
 
-    useEffect(()=>{
-        axios.get(URL_API+'/api/shows/'+id)
-             .then(res => {
-                setName(res.data.name)
-                setPhoto(res.data.photo)
-                setDate(res.data.date)
-                setPrice(res.data.price)
-                setDescription(res.data.description)
-             })
-             .catch(err => console.log(err) )
-    }, [id])
-
-
-    let patchHandler = (e) => {
+    
+    let handleCreate = (e) => {
         e.preventDefault()
 
         let dataUpdate = {
             name: name,
-            description: description,
             photo: photo,
-            price: price,
             date: date,
+            price: price,
+            description: description,
         }
 
         let token =localStorage.getItem('token')
         console.log("TOKEN SHOW",  token)
         let headers = { headers: { Authorization : 'Bearer '+token }}
 
-        axios.patch(`${URL_API}/api/shows/${id}`, dataUpdate, headers )
+        axios.post(`${URL_API}/api/shows`, dataUpdate, headers )
               .then(res => {
                 console.log(res)
                 if(res.data.success){
@@ -61,9 +45,13 @@ const ShowEdit = () => {
               })
     }
 
+
   return (
-    <div className='d-flex h-100vh center align-center w-100'>
-    <form className="form_hotel" onSubmit={patchHandler} >
+    <div className='d-flex h-100vh center align-center w-100 column gap-5'>
+
+        <h1>Create a new show</h1>
+
+    <form className="form_hotel" onSubmit={handleCreate} >
         <input 
             type="text" 
             value={name} 
@@ -109,4 +97,4 @@ const ShowEdit = () => {
   )
 }
 
-export default ShowEdit
+export default NewShow

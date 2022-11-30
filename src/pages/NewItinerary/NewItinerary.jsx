@@ -2,50 +2,58 @@ import React, { useState } from "react";
 
 import "../../App.css";
 import ButtonCity from "../../components/ButtonCity/ButtonCity";
-import "./NewCity.css";
+import "./NewItinerary.css";
 import Newcityinput from "./Newcityinput";
 import { URL_API } from "../../api/url";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 
-export default function NewCity() {
+export default function NewItinerary() {
   let navigate = useNavigate();
+  
+  const [cityId, setCityId] = useState("");
   const [name, setName] = useState("");
   const [photo, setPhoto] = useState("");
-  const [population, setPopulation] = useState(0);
-  const [continent, setContinent] = useState("");
-  const [user, setUser] = useState("");
+  const [description, setDescription] = useState(0);
+  const [price, setPrice] = useState("");
+  const [duration, setDuration] = useState("");
+  const [userId, setUserId] = useState("");
 
-  let dataNewCity = {
+  let dataNewItinerary = {
+    cityId:"",
     name: "",
     photo: "",
-    population: 0,
-    continent: "",
+    description: "",
+    price: "",
+    duration: "",
+    userId: "",
   };
 
   const handlerClickForm = (e) => {
     e.preventDefault();
 
-    dataNewCity = {
+    dataNewItinerary = {
+      cityId:cityId,
       name: name,
       photo: photo,
-      population: population,
-      continent: continent,
-      userId: user,
+      description: description,
+      price: price,
+      duration: duration,
+      userId: userId,
     };
 
     axios({
       method: "post",
-      url: `${URL_API}/api/cities`,
-      data: dataNewCity,
+      url: `${URL_API}/api/itineraries`,
+      data: dataNewItinerary,
       headers: { token: localStorage.getItem("token") },
     })
       .then((res) => {
         console.log(res);
         setName("");
         if (res.data.success) {
-          return navigate("/cities");
+          return navigate("/myitineraries");
         } else {
           Swal.fire(res.data.message.join("  -    -   -    -   -"));
         }
@@ -56,6 +64,11 @@ export default function NewCity() {
   return (
     <div className="d-flex w-100 h-100vh space-evenly align-center">
       <form className="form-city" onSubmit={handlerClickForm}>
+
+      <Newcityinput
+          onChange={(e) => setCityId(e.target.value)}
+          placeholder="CityId"
+        />
         <Newcityinput
           onChange={(e) => setName(e.target.value)}
           placeholder="Name"
@@ -65,15 +78,19 @@ export default function NewCity() {
           placeholder="Photo(URL)"
         />
         <Newcityinput
-          onChange={(e) => setPopulation(e.target.value)}
-          placeholder="Population"
+          onChange={(e) => setDescription(e.target.value)}
+          placeholder="Description"
         />
         <Newcityinput
-          onChange={(e) => setContinent(e.target.value)}
-          placeholder="Continent"
+          onChange={(e) => setPrice(e.target.value)}
+          placeholder="Price"
+        />
+                <Newcityinput
+          onChange={(e) => setDuration(e.target.value)}
+          placeholder="Duration"
         />
         <Newcityinput
-          onChange={(e) => setUser(e.target.value)}
+          onChange={(e) => setUserId(e.target.value)}
           placeholder="User ID"
         />
 
@@ -82,7 +99,7 @@ export default function NewCity() {
         </div>
       </form>
       <div className="city-created">
-        <h2>City Created Dinamic</h2>
+        <h2>Itinerary Created Dinamic</h2>
       </div>
     </div>
   );

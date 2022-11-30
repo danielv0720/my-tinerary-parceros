@@ -30,6 +30,7 @@ export const saveMyItineraries = (myitineraries) => {
 // Middleware
 
 export const startDeleteMyItinerary = (id) => {
+  console.log(id);
   return async (dispatch) => {
     Swal.fire({
       title: 'Are you sure?',
@@ -41,7 +42,7 @@ export const startDeleteMyItinerary = (id) => {
       confirmButtonText: 'Yes, delete it!'
     }).then(async (result) => {
       if (result.isConfirmed) {
-        const response = (await axios.delete(`${URL_API}/api/itineraries/${id}`))
+        const response = (await axios.delete(`${URL_API}/api/itineraries/${id}`, {headers: { token: localStorage.getItem("token") }}))
         console.log(response);
         dispatch(deleteMyItinerary(id))
         
@@ -74,6 +75,7 @@ export const startUpdateItinerary = (id, dataNewItinerary) => {
       method: "put",
       url: `${URL_API}/api/itineraries/${id}`,
       data: dataNewItinerary,
+      headers: { token: localStorage.getItem("token") },
     })
 
 

@@ -20,7 +20,7 @@ const showsReducer = createReducer(initialState, (builder) => {
     .addCase(deleteShow.fulfilled,(state, action) => {
         let newState = {
             ...state,
-             showsByUser: state.filter(item => item._id !== action.payload.id )
+             showsByUser: state.filter(item => item.id !== action.payload.id )
         }
         return newState
     } )

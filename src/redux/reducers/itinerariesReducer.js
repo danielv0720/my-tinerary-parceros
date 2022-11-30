@@ -29,7 +29,7 @@ export const itinerariesReducer = (state = initialItinerariesState, action) => {
           ...state,
           myItineraries: state.myItineraries.map(mi => {
             if (mi._id === action.payload.id) {
-              return {...action.payload.dataNewItinerary}
+              return {...action.payload.dataNewItinerary, _id: action.payload.id}
             } else {
               return mi
             }

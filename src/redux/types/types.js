@@ -7,8 +7,9 @@ export const types = {
   
   loadMyItineraries: "[MyItineraries] load my itineraries",
   deleteItineraries: "[MyItineraries] delete my itineraries",
-  updateItineraries: "[MyItineraries] update my itineraries"
+  updateItineraries: "[MyItineraries] update my itineraries",
 
-
+  login: "[Auth] user login",
+  logout: "[Auth] user logout"
   
 }
