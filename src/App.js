@@ -12,6 +12,7 @@ import "./components/NewHotel/NewHotel.css";
 import AutoToTop from "./components/AutoToTop";
 import ScrolltoTop from "./components/Scrolltotop/Scrolltotop";
 // Components
+
 import Home from "./pages/Home";
 import Cities from "./pages/Cities";
 import Hotels from "./pages/Hotels"; //
@@ -42,13 +43,58 @@ import NewItinerary from "./components/NewItinerary/NewItinerary.jsx";
 import NewReaction from "./components/Reaction/Reaction.jsx";
 
 // Layout
+/* 
+import Cities from './pages/Cities'; */
+/* import Hotels from './pages/Hotels';//  */
+/* import Layout from './layout/Layout'; */
+/* import NotFoundPage from './pages/NotFoundPage' */
+
+/* import SignUp from './pages/SignUp'; */
+/* import SigninPage from './pages/SigninPage'; */
+
+/* import { HotelPage } from './components/DescriptionHotel/HotelPage';
+import NewHotelPage from './pages/NewHotelPage';
+
+import DetailCity  from './pages/DetailCity';
+import NewCity from './pages/NewCity/NewCity';
+import MyCities from './pages/MyCities';
+import MyItinerary from './pages/MyItinerary';
+import HotelDetail from './pages/HotelDetail/HotelDetail';
+import { useEffect, useState } from 'react';
+import { startSaveCities, startSaveMyCities } from './redux/actions/cityAction';
+import { useDispatch } from 'react-redux';
+import UpdateCity from './components/UpdateCity/UpdateCity';
+import { startSaveMyItineraries } from './redux/actions/itineraryAcion';
+import UpdateItinerary from './components/UpdateItinery/UpdateItinerary';
+ */
+/* import { ProtectedRoute } from './components/ProtectRoute/ProtectedRoute'; */
+
+import MyHotel from "./pages/MyHotel/MyHotel";
+import HotelEdit from "./pages/HotelEdit/HotelEdit";
+import MyShows from "./pages/MyShows/MyShows";
+import ShowEdit from "./pages/ShowEdit/ShowEdit";
+import Profile from "./pages/Profile/Profile";
+import userActions from "./redux/actions/userAction";
+import ProfileEdit from "./pages/ProfileEdit/ProfileEdit";
+import NewShow from "./pages/NewShow/NewShow";
 
 function App() {
+  const { reEnter } = userActions;
+
   const dispatch = useDispatch();
+
   useEffect(() => {
+    let token = localStorage.getItem("token");
+
+    console.log("TOKEN APP", token);
+
     dispatch(startSaveCities());
     dispatch(startSaveMyCities("636e8c06ce259ab0ebdb9813"));
     dispatch(startSaveMyItineraries("636e8c06ce259ab0ebdb9813"));
+
+    if (token) {
+      dispatch(reEnter(token));
+    }
   }, [dispatch]);
 
   const [user, setUser] = useState(null);
@@ -65,12 +111,13 @@ function App() {
         id: 1,
         name: "Daniel Velez",
         role: ["admin"],
-        photo: "https://images.pexels.com/photos/12276196/pexels-photo-12276196.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+        photo:
+          "https://images.pexels.com/photos/12276196/pexels-photo-12276196.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       })
     );
   };
 
-  const startLogout = () => { 
+  const startLogout = () => {
     Swal.fire({
       title: "Are you sure?",
       icon: "warning",
@@ -80,14 +127,10 @@ function App() {
       confirmButtonText: "Yes, logout",
     }).then((result) => {
       if (result.isConfirmed) {
-        setUser(null)
-        dispatch(
-          logout()
-        );
+        setUser(null);
+        dispatch(logout());
       }
     });
-
-
   };
 
   return (
@@ -109,9 +152,11 @@ function App() {
         <Route path="/signUp" element={<SignUp />} />
         <Route path="/city/:idCity" element={<DetailCity />} />
         <Route path="/hotels/:idDetail" element={<HotelDetail />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/profile/:id" element={<ProfileEdit />} />
         <Route path="/updatecity/:id" element={<UpdateCity />} />
         <Route path="/updateitineraries/:id" element={<UpdateItinerary />} />
-        
+
         <Route
           path="/mycities"
           element={
@@ -154,7 +199,7 @@ function App() {
             //   isAllowed={!!user && user.role.includes("admin")}
             //   reDirect={"/"}
             // >
-              <NewItinerary />
+            <NewItinerary />
             // </ProtectedRoute>
           }
         />
@@ -171,17 +216,23 @@ function App() {
           }
         />
 
-<Route 
-path="/newreaction" 
-element={
-  <ProtectedRoute
-  isAllowed={!!user && user.role.includes("admin")}
-  reDirect={"/"}
->
-<NewReaction/>
-</ProtectedRoute>
-}
-/>
+        <Route
+          path="/newreaction"
+          element={
+            <ProtectedRoute
+              isAllowed={!!user && user.role.includes("admin")}
+              reDirect={"/"}
+            >
+              <NewReaction />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route path="/hotelsAdmin" element={<MyHotel />} />
+        <Route path="/hotelsAdmin/:id" element={<HotelEdit />} />
+        <Route path="/showsUser" element={<MyShows />} />
+        <Route path="/showsUser/:id" element={<ShowEdit />} />
+        <Route path="/newShow" element={<NewShow />} />
       </Routes>
     </Layout>
   );

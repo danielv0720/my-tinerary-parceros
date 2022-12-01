@@ -1,0 +1,70 @@
+.container-admin {
+    padding: 30px 0;
+}
+
+.title-admin {
+    font-family: sans-serif;
+}
+
+.cards {
+    margin-top: 50px;
+    width: 100%;
+    display: grid;
+    gap: 10px;
+    grid-auto-rows: 22rem;
+    place-content: center;
+}
+
+.container-btn {
+    display: flex;
+    padding: 15px;
+}
+
+.btn-edit {
+    padding: 5px;
+    background-color: cadetblue;
+    color: aliceblue;
+    text-decoration: none;
+    font-weight: 600;
+    width: 20px;
+    height: 15px;
+}
+
+.btn_delete {
+    background-color: rgba(197, 58, 58, 0.836);
+    color: aliceblue;
+    border: none;
+    cursor: pointer;
+    width: 80px;
+    height: 40px;
+}
+
+.btn-new_show {
+    width: 90px;
+    padding: 5px;
+    background-color: darkseagreen;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+}
+
+@media screen and (min-width: 768px){
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (min-width: 960px){
+    .cards {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media screen and (min-width: 1200px){
+    .cards {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}

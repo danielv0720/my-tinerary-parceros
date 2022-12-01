@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import '../App.css'
 import './Navbar.css'
 import { Link } from 'react-router-dom'
@@ -7,9 +7,15 @@ import { IoMenuOutline } from "react-icons/io5";
 import { useSelector } from 'react-redux';
 const Navbar = () => {
     console.log("Navbar");
-    const auth = useSelector(state => state.auth)
-    const isAuth = !!Object.keys(auth).length; 
+    
+    const auth = useSelector(state => state.users)
+    /* const isAuth = !!Object.keys(auth).length; */ 
+    const isAuth = auth.logged === true;
     const isAdmin = auth.role?.includes('admin')
+ 
+    useEffect(()=>{
+        
+    })
 
     let [active, setActive] = useState("nav-container")
 
@@ -48,11 +54,18 @@ const Navbar = () => {
                     { isAuth && isAdmin && <Link to='/newreaction' className="text-decoration__none p-20 text-center d-flex align-center fw-600 dark-light size-20p nav-link">New Reaction</Link> }
                 </li>
                 <li className="list-style__none nav-list  btn_sig">
+
+                    { !isAuth && isAdmin && <Link to='/signin' className="text-decoration__none p-20 text-center d-flex align-center fw-600  size-20p nav-link signin">Signin</Link> }
+                </li>
+                <li className="list-style__none nav-list">
+                    { !isAuth && isAdmin && <Link to='/signUp' className="text-decoration__none p-20 text-center d-flex align-center fw-600  size-20p nav-link signUp">Sign Up</Link> }
+
                     { !isAuth && !isAdmin && <Link to='/signin' className="text-decoration__none p-20 text-center d-flex align-center fw-600  size-20p nav-link signin">Signin</Link> }
                 </li>
                 <li className="list-style__none nav-list">
                  
                     { !isAuth && !isAdmin && <Link to='/signUp' className="text-decoration__none p-20 text-center d-flex align-center fw-600  size-20p nav-link signUp">Sign Up</Link> }
+
                 </li>
             </ul>
             
