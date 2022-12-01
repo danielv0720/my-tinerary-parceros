@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import "../../App.css";
-import ButtonCity from "../../components/ButtonCity/ButtonCity";
+import ButtonCity from "../ButtonCity/ButtonCity";
 import "./NewReaction";
 import Newcityinput from "./Newcityinput";
 import { URL_API } from "../../api/url";

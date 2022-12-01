@@ -5,11 +5,15 @@ import { URL_API } from "../api/url";
 
 import "./DetailCity.css";
 import "../App.css";
+import Reaction from "../components/Reaction/Reaction";
 
 const DetailCity = () => {
   const [city, setCity] = useState(null);
   const [itineraries, setItineraries] = useState(null);
+  const [reaction, setReaction] = useState(null);
   const { idCity } = useParams();
+  const { itineraryId } = useParams();
+  console.log(itineraryId);
   console.log(idCity);
 
   useEffect(() => {
@@ -24,7 +28,18 @@ const DetailCity = () => {
         console.log(response.data);
         setItineraries(response.data.response);
       });
-  }, [idCity]);
+
+      axios
+      .get(`${URL_API}/api/reactions?itineraryId=${itineraryId}`)
+      .then((response) => {
+        console.log(response.data);
+        setReaction(response.data.response);
+      });
+
+
+
+
+  }, [idCity,itineraryId]);
 
   return (
     <div className="d-flex center align-center w-100 h-100vh">
@@ -46,7 +61,11 @@ const DetailCity = () => {
       {itineraries && itineraries.map((item) => 
       <>
        <li key={item.id}>{item.name}</li>
+       <p>{item.description}</p>
        <img  src={item.photo[0]} alt="imagen" />
+       
+       <Reaction nombre='like dislike love surprese'> </Reaction>
+       
        </>
         )}
       </div>

@@ -25,10 +25,10 @@ import { HotelPage } from "./components/DescriptionHotel/HotelPage";
 import NewHotelPage from "./pages/NewHotelPage";
 
 import DetailCity from "./pages/DetailCity";
-import NewCity from "./pages/NewCity/NewCity";
+import NewCity from "./components/NewCity/NewCity";
 import MyCities from "./pages/MyCities";
 import MyItinerary from "./pages/MyItinerary";
-import HotelDetail from "./pages/HotelDetail/HotelDetail";
+import HotelDetail from "./components/HotelDetail/HotelDetail";
 import { useEffect, useState } from "react";
 import { startSaveCities, startSaveMyCities } from "./redux/actions/cityAction";
 import { useDispatch } from "react-redux";
@@ -38,8 +38,8 @@ import UpdateItinerary from "./components/UpdateItinery/UpdateItinerary";
 import { ProtectedRoute } from "./components/ProtectRoute/ProtectedRoute";
 import { login, logout } from "./redux/actions/userAction";
 import Swal from "sweetalert2";
-import NewItinerary from "./pages/NewItinerary/NewItinerary";
-import NewReaction from "./pages/Newreaction/NewReaction";
+import NewItinerary from "./components/NewItinerary/NewItinerary.jsx";
+import NewReaction from "./components/Reaction/Reaction.jsx";
 
 // Layout
 

@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import "../../App.css";
 import ButtonCity from "../ButtonCity/ButtonCity";
 import "./UpdateItinerary.css";
-import Newcityinput from "../../pages/NewCity/Newcityinput";
+import Newcityinput from "../../components/NewCity/Newcityinput";
 import { URL_API } from "../../api/url";
 import axios from "axios";
 import Swal from 'sweetalert2'
