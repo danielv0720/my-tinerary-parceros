@@ -14,7 +14,7 @@ const MyHotel = () => {
     const { getHotelAdmin, deleteHotel } = hotelsAction
     useEffect(() => {
         dispatch(getHotelAdmin(idAdmin))
-    }, [idAdmin])
+    }, [idAdmin, dispatch, getHotelAdmin])
     const hotelsAdmin = useSelector(state => state.hotels.hotelsAdmin)
 
     let handleDelete = (id) => {

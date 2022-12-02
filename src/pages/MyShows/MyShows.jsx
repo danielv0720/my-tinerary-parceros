@@ -26,7 +26,11 @@ const MyShows = () => {
     
     useEffect(()=>{
         dispatch(getShowUser(idUser))
+
+    }, [idUser, dispatch, getShowUser])
+
     }, [ reload, idUser])
+
 
     let dataDelete = {
         id : "",

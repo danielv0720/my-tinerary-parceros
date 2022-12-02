@@ -325,6 +325,10 @@ margin-top: -50px;
   
 }
 
+.image {
+  width: 400px;
+}
+
 @media screen and (max-width: 1068px){
   .container-title {
     margin-right: -800px;

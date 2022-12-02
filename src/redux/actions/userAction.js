@@ -1,20 +1,9 @@
 
-import { types } from "../types/types";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { URL_API } from "../../api/url";
 import axios from "axios";
 import Swal from "sweetalert2";
 
-
-export const login = (user) => ({
-  type: types.login,
-  payload: user
-})
-
-
-export const logout = () => ({
-  type: types.logout
-})
 
 
 const signIn = createAsyncThunk('signIn', async (data)=>{
@@ -25,7 +14,6 @@ const signIn = createAsyncThunk('signIn', async (data)=>{
     try {
         let user = await axios.post(uri, data)
        
-        console.log(user.data.response)
         if(user.data.success){
             Swal.fire({
                 title: 'User logged',
@@ -53,14 +41,12 @@ const signIn = createAsyncThunk('signIn', async (data)=>{
     }
 })
 
-
 const reEnter = createAsyncThunk('reEnter', async (token) => {
     let endpoint = `${URL_API}/auth/token`
     let headers = { headers: { 'Authorization' : `Bearer ${token}` } } 
     try {
         let user = await axios.post(endpoint, null, headers)
-        console.log( "Response REENTER", user.data.response)
-        console.log("User data", user.data)
+
         return {
             success: true,
             res: {
@@ -78,9 +64,29 @@ const reEnter = createAsyncThunk('reEnter', async (token) => {
     }
 })
 
+const logout = createAsyncThunk('logout', async (token) => {
+    let endpoint = `${URL_API}/auth/signout`
+    let headers = { headers: { 'Authorization' : `Bearer ${token}` } } 
+    try {
+        let res = await axios.put(endpoint, null, headers)
+        console.log( "Response logout", res)
+        localStorage.clear()
+        return {
+            success: true
+        }
+
+    } catch (err) {
+        console.log(err.response)
+        return {
+            success: false,
+        }
+    }
+})
+
 const userActions = {
     signIn,
-    reEnter
+    reEnter,
+    logout
 }
 
 

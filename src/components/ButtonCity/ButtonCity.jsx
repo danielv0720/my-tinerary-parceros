@@ -1,6 +1,6 @@
 import React from 'react'
 
-import '../../pages/NewCity/NewCity.css'
+import '../../components/NewCity/NewCity.css'
 
 const ButtonCity = () => {
     

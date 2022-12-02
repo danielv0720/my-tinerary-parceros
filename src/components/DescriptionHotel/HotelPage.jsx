@@ -1,5 +1,5 @@
 import React from 'react'
-import { useParams, redirect, Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import hotelsData from '../../data2/hotelsData';
 import '../DescriptionHotel/HotelPage'
 

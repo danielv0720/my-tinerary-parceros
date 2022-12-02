@@ -3,11 +3,10 @@ import React, { useState, useEffect } from "react";
 import "../../App.css";
 import ButtonCity from "../../components/ButtonCity/ButtonCity";
 import "./UpdateCity.css";
-import Newcityinput from "../../pages/NewCity/Newcityinput";
+import Newcityinput from "../../components/NewCity/Newcityinput";
 import { URL_API } from "../../api/url";
 import axios from "axios";
-import Swal from 'sweetalert2'
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { startUpdateCity } from "../../redux/actions/cityAction";
 
