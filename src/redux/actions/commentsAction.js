@@ -60,9 +60,77 @@ const addComment = createAsyncThunk('addComment', async (data)=>{
 
 })
 
+
+const editComment = createAsyncThunk('editComment', async (data) => {
+    let url = `${URL_API}/api/comments/${data.id}`
+    let headers = { headers: { 'Authorization' : `Bearer ${data.token}` } }
+
+    let res = await axios.put(url, data.comment,headers)
+
+    try {
+        if(res.data.success){
+            console.log("RES comment", res)
+            console.log("DATA comment", res.data)
+            Swal.fire({
+                title: res.data.message,
+                icon: 'success'
+            })
+    
+            return { response : res.data.response, success : true  }
+        } else {
+            console.log(res.data)
+            Swal.fire({
+                title: 'Cannot edit this comment',
+                icon: 'error'
+            })
+        }
+    
+    } catch (err) {
+        return {
+            payload: err
+        }
+    }
+    
+})
+
+   const deleteComment = createAsyncThunk('deleteComment', async (data) => {
+        let api = `${URL_API}/api/comments/${data.id}`
+
+        let headers = { headers: { 'Authorization' : `Bearer ${data.token}` } }
+
+        try {
+            let comment = await axios.delete(api, headers)
+            if(comment.data.success){
+                console.log("comment deleted", comment.data)
+                Swal.fire({
+                    title: "Comment deleted successfully",
+                    icon: "success"
+                })
+
+                return {
+                    response: comment.data.response,
+                    success: true,
+                    id: data.id
+                }
+            } else {
+                Swal.fire({
+                    title: "Comment is not deleted",
+                    icon: "error"
+                })
+            }
+        } catch (err) {
+            return {
+                payload: err
+            }
+        }
+   })
+
+
 const commentActions = {
     addComment,
-    getComments
+    getComments,
+    editComment,
+    deleteComment
 }
 
 export default commentActions

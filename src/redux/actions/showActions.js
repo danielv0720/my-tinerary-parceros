@@ -5,6 +5,7 @@ import Swal from "sweetalert2";
 
 const getShowUser = createAsyncThunk('getShowUser', async (id) => {
     let apiUri = `${URL_API}/api/shows?userId=${id}`
+    console.log("URL", apiUri)
     try {
      const res = await axios.get(apiUri)
      console.log(res)
