@@ -1,5 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit"
 import { citiesReducer } from "./reducers/citiesReducer";
+import commentReducer from "./reducers/commentReducer";
 
 import hotelsReducer from "./reducers/hotelReducer"
 import { itinerariesReducer } from "./reducers/itinerariesReducer";
@@ -18,7 +19,8 @@ const store = configureStore({
 
         auth: userReducer,
         shows: showsReducer,
-        users: userReducer
+        users: userReducer,
+        comments: commentReducer
 
     }
 })

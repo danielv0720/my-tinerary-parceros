@@ -71,10 +71,11 @@ const userReducer = createReducer( initialState, (builder) => {
             let newState = {
                 ...state,
                 name: user.name,
-                photo: user.foto,
+                photo: user.photo,
                 id: user.id,
                 logged: user.logged,
-                token: token
+                token: token,
+                role: user.role
             }
             return newState
         }else {

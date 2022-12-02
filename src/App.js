@@ -40,6 +40,8 @@ import { ProtectedRoute } from "./components/ProtectRoute/ProtectedRoute";
 import { login, logout } from "./redux/actions/userAction";
 import Swal from "sweetalert2";
 import NewItinerary from "./pages/NewItinerary/NewItinerary";
+
+/* import { useSelector } from "react-redux"; */
 // Layout
 /* 
 import Cities from './pages/Cities'; */
@@ -83,7 +85,9 @@ function App() {
   const { reEnter } = userActions
   
   const dispatch = useDispatch();
-  
+  /* let token = localStorage.getItem('token')
+  let userState = useSelector(state => state.users) */
+
   useEffect(() => {
     let token = localStorage.getItem('token')
     
