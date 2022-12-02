@@ -1,7 +1,6 @@
 import axios from "axios";
 import Swal from "sweetalert2";
 import { URL_API } from "../../api/url";
-import UpdateItinerary from "../../components/UpdateItinery/UpdateItinerary";
 import { types } from "../types/types"
 
 

@@ -15,7 +15,7 @@ const MyShows = () => {
 
     useEffect(()=>{
         dispatch(getShowUser(idUser))
-    }, [idUser])
+    }, [idUser, dispatch, getShowUser])
 
     const showUser = useSelector(state => state.shows.showsByUser)
     let dataDelete = {
