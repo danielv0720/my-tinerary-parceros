@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom'
 import { IoMenuOutline } from "react-icons/io5";
 import { useSelector } from 'react-redux';
 const Navbar = () => {
-    console.log("Navbar");
     
     const auth = useSelector(state => state.users)
     const isAuth = auth.logged;

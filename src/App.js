@@ -49,6 +49,8 @@ import ShowEdit from "./pages/ShowEdit/ShowEdit";
 import Profile from "./pages/Profile/Profile";
 import ProfileEdit from "./pages/ProfileEdit/ProfileEdit";
 import NewShow from "./pages/NewShow/NewShow";
+import Myreactions from "./pages/Myreactions";
+import { startSaveMyReactions } from "./redux/actions/reactionAction";
 
 function App() {
   const user = useSelector(state => state.users)
@@ -58,19 +60,24 @@ function App() {
   const dispatch = useDispatch();
 
   let token = localStorage.getItem("token");
+
   useEffect(() => {
-
     console.log("TOKEN APP", token);
-
-    dispatch(startSaveCities());
-    dispatch(startSaveMyCities("636e8c06ce259ab0ebdb9813"));
-    dispatch(startSaveMyItineraries("636e8c06ce259ab0ebdb9813"));
-
     if (token) {
       dispatch(reEnter(token));
     }
-  }, [dispatch]);
+  }, [dispatch, token, reEnter]);
 
+
+  useEffect(() => {
+    if (user.id) {
+      dispatch(startSaveCities());
+      dispatch(startSaveMyCities(user.id));
+      dispatch(startSaveMyItineraries(user.id));
+      dispatch(startSaveMyReactions(user.id))
+    }
+  }, [user, dispatch])
+  
 
   const startLogout = () => {
     Swal.fire({
@@ -109,6 +116,7 @@ function App() {
         <Route path="/profile/:id" element={<ProfileEdit />} />
         <Route path="/updatecity/:id" element={<UpdateCity />} />
         <Route path="/updateitineraries/:id" element={<UpdateItinerary />} />
+        <Route path="/myreactions" element={<Myreactions />} />
 
         <Route
           path="/mycities"

@@ -14,7 +14,6 @@ const signIn = createAsyncThunk('signIn', async (data)=>{
     try {
         let user = await axios.post(uri, data)
        
-        console.log(user.data.response)
         if(user.data.success){
             Swal.fire({
                 title: 'User logged',
@@ -47,8 +46,7 @@ const reEnter = createAsyncThunk('reEnter', async (token) => {
     let headers = { headers: { 'Authorization' : `Bearer ${token}` } } 
     try {
         let user = await axios.post(endpoint, null, headers)
-        console.log( "Response REENTER", user.data.response)
-        console.log("User data", user)
+
         return {
             success: true,
             res: {
