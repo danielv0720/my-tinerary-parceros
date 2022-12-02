@@ -17,6 +17,7 @@ const MyShows = () => {
 
     const dispatch = useDispatch()
     const idUser = localStorage.getItem('id')
+    console.log( "My ID", idUser)
     const { getShowUser, deleteShow } = showsActions
     let token = localStorage.getItem('token')
 
@@ -25,7 +26,7 @@ const MyShows = () => {
     
     useEffect(()=>{
         dispatch(getShowUser(idUser))
-    }, [ reload])
+    }, [ reload, idUser])
 
     let dataDelete = {
         id : "",
@@ -51,6 +52,7 @@ const MyShows = () => {
     <LinkRoute to={`/newShow`}  className='btn-new_show' >New show</LinkRoute>
 
     <div className="cards">
+        <div className="container_scroll">
         {
             showUser.map(show => 
                     (<CardShow 
@@ -63,9 +65,8 @@ const MyShows = () => {
                         token={token}
                     />
                     ))
-    
-
         }
+        </div>
     </div>
 </div>
   )
