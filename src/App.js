@@ -181,8 +181,8 @@ function App() {
           path="/newreaction"
           element={
             <ProtectedRoute
-              isAllowed={!!user && user.role?.includes("admin")}
-              reDirect={"/"}
+              // isAllowed={!!user && user.role?.includes("admin")}
+              // reDirect={"/"}
             >
               <NewReaction />
             </ProtectedRoute>
