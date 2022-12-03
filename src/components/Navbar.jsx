@@ -44,21 +44,21 @@ const Navbar = () => {
                     { isAuth && isAdmin && <Link to='/newhotel' className="text-decoration__none p-20 text-center d-flex align-center dark-light size-20p nav-link">New Hotel</Link> }
                 </li>
                 <li className="list-style__none nav-list">
-                { isAuth && isAdmin && <Link to='/myreactions' className="text-decoration__none p-20 text-center d-flex align-center fw-600 dark-light size-20p nav-link">My Reactions</Link> }
-                    { isAuth && isAdmin && <Link to='/newreaction' className="text-decoration__none p-20 text-center d-flex align-center fw-600 dark-light size-20p nav-link">New Reaction</Link> }
+                { isAuth && isAdmin && <Link to='/myreactions' className="text-decoration__none p-20 text-center d-flex align-center dark-light size-20p nav-link">My Reactions</Link> }
+                    { isAuth && isAdmin && <Link to='/newreaction' className="text-decoration__none p-20 text-center d-flex align-center dark-light size-20p nav-link">New Reaction</Link> }
                 </li>
                 <li className="list-style__none nav-list">
-                    { !isAuth && !isAdmin && <Link to='/signin' className="text-decoration__none p-20 text-center d-flex align-center fw-600  size-20p nav-link signin">Signin</Link> }
+                    { !isAuth && !isAdmin && <Link to='/signin' className="text-decoration__none p-20 text-center d-flex align-center  size-20p nav-link signin">Signin</Link> }
                 </li>
                 <li className="list-style__none nav-list">
-                    { !isAuth && !isAdmin && <Link to='/signUp' className="text-decoration__none p-20 text-center d-flex align-center fw-600  size-20p nav-link signUp">Sign Up</Link> }
+                    { !isAuth && !isAdmin && <Link to='/signUp' className="text-decoration__none p-20 text-center d-flex align-center  size-20p nav-link signUp">Sign Up</Link> }
                 </li>
             </ul>
             
             {isAuth && <div className='profile-container'>
-                <h4>{auth.name}</h4>
-                <img className='profile-picture' src={auth.photo} alt="" />
-            </div>}
+                            <h4>{auth.name}</h4>
+                        <img className='profile-picture' src={auth.photo} alt="" />
+                        </div>}
         </nav>
     )
 }
