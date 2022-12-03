@@ -1,7 +1,7 @@
 // Components
 
 // Routes
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 // Styles
 import "./App.css";
 import "./components/NotFound/NotFound.css";
@@ -26,20 +26,30 @@ import { HotelPage } from "./components/DescriptionHotel/HotelPage";
 import NewHotelPage from "./pages/NewHotelPage";
 
 import DetailCity from "./pages/DetailCity";
-import NewCity from "./pages/NewCity/NewCity";
+import NewCity from "./components/NewCity/NewCity";
 import MyCities from "./pages/MyCities";
 import MyItinerary from "./pages/MyItinerary";
-import HotelDetail from "./pages/HotelDetail/HotelDetail";
-import { useEffect, useState } from "react";
+import HotelDetail from "./components/HotelDetail/HotelDetail";
+import { useEffect } from "react";
 import { startSaveCities, startSaveMyCities } from "./redux/actions/cityAction";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import UpdateCity from "./components/UpdateCity/UpdateCity";
 import { startSaveMyItineraries } from "./redux/actions/itineraryAcion";
 import UpdateItinerary from "./components/UpdateItinery/UpdateItinerary";
 import { ProtectedRoute } from "./components/ProtectRoute/ProtectedRoute";
-import { login, logout } from "./redux/actions/userAction";
+import userActions from "./redux/actions/userAction";
 import Swal from "sweetalert2";
-import NewItinerary from "./pages/NewItinerary/NewItinerary";
+
+import NewItinerary from "./components/NewItinerary/NewItinerary.jsx";
+
+import MyHotel from "./pages/MyHotel/MyHotel";
+import HotelEdit from "./pages/HotelEdit/HotelEdit";
+import MyShows from "./pages/MyShows/MyShows";
+import ShowEdit from "./pages/ShowEdit/ShowEdit";
+import Profile from "./pages/Profile/Profile";
+import ProfileEdit from "./pages/ProfileEdit/ProfileEdit";
+
+
 
 /* import { useSelector } from "react-redux"; */
 // Layout
@@ -69,60 +79,44 @@ import UpdateItinerary from './components/UpdateItinery/UpdateItinerary';
  */
 /* import { ProtectedRoute } from './components/ProtectRoute/ProtectedRoute'; */
 
-import MyHotel from './pages/MyHotel/MyHotel';
-import HotelEdit from './pages/HotelEdit/HotelEdit';
-import MyShows from './pages/MyShows/MyShows';
-import ShowEdit from './pages/ShowEdit/ShowEdit';
-import Profile from './pages/Profile/Profile';
-import userActions from './redux/actions/userAction';
-import ProfileEdit from './pages/ProfileEdit/ProfileEdit';
+
+
+
+
+
+
+
 import NewShow from "./pages/NewShow/NewShow";
-
-
-
+import Myreactions from "./pages/Myreactions";
+import { startSaveMyReactions } from "./redux/actions/reactionAction";
+import NewReaction from "./components/Newreaction/NewReaction";
 
 function App() {
-  const { reEnter } = userActions
-  
+  const user = useSelector(state => state.users)
+  const navigate = useNavigate()
+  const { reEnter, logout } = userActions;
   const dispatch = useDispatch();
-  /* let token = localStorage.getItem('token')
-  let userState = useSelector(state => state.users) */
+  let token = localStorage.getItem("token");
 
   useEffect(() => {
-    let token = localStorage.getItem('token')
-    
-    console.log( "TOKEN APP", token)
-    
-    dispatch(startSaveCities());
-    dispatch(startSaveMyCities("636e8c06ce259ab0ebdb9813"));
-    dispatch(startSaveMyItineraries("636e8c06ce259ab0ebdb9813"));
-    
-    if(token){
-      dispatch(reEnter(token))
+    console.log("TOKEN APP", token);
+    if (token) {
+      dispatch(reEnter(token));
     }
-    
-  }, [dispatch]);
+  }, [dispatch, token, reEnter]);
 
-  const [user, setUser] = useState(null);
 
-  const startLogin = () => {
-    setUser({
-      id: 1,
-      name: "daniel",
-      role: ["admin"],
-    });
+  useEffect(() => {
+    if (user.id) {
+      dispatch(startSaveCities());
+      dispatch(startSaveMyCities(user.id));
+      dispatch(startSaveMyItineraries(user.id));
+      dispatch(startSaveMyReactions(user.id))
+    }
+  }, [user, dispatch])
+  
 
-    dispatch(
-      login({
-        id: 1,
-        name: "Daniel Velez",
-        role: ["admin"],
-        photo: "https://images.pexels.com/photos/12276196/pexels-photo-12276196.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-      })
-    );
-  };
-
-  const startLogout = () => { 
+  const startLogout = () => {
     Swal.fire({
       title: "Are you sure?",
       icon: "warning",
@@ -132,28 +126,21 @@ function App() {
       confirmButtonText: "Yes, logout",
     }).then((result) => {
       if (result.isConfirmed) {
-        setUser(null)
-        dispatch(
-          logout()
-        );
+        dispatch(logout(token));
+        navigate('/')
       }
     });
-
-
   };
 
   return (
     <Layout>
-      {/* {user ? (
+      {user.logged && (
         <button onClick={startLogout}>logout</button>
-      ) : (
-        <button onClick={startLogin}>login</button>
-      )} */}
+      )} 
       <ScrolltoTop />
       <AutoToTop />
       <Routes>
-
-        <Route path="/" exact element={<Home/>} />
+        <Route path="/" exact element={<Home />} />
         <Route path="/cities" element={<Cities />} />
         <Route path="/hotels" element={<Hotels />} />
         <Route path="/hotel/:id" element={<HotelPage />} />
@@ -162,14 +149,17 @@ function App() {
         <Route path="/signUp" element={<SignUp />} />
         <Route path="/city/:idCity" element={<DetailCity />} />
         <Route path="/hotels/:idDetail" element={<HotelDetail />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/profile/:id" element={<ProfileEdit />} />
         <Route path="/updatecity/:id" element={<UpdateCity />} />
         <Route path="/updateitineraries/:id" element={<UpdateItinerary />} />
+        <Route path="/myreactions" element={<Myreactions />} />
 
         <Route
           path="/mycities"
           element={
             <ProtectedRoute
-              isAllowed={!!user && user.role.includes("admin")}
+              isAllowed={!!user && user.role?.includes("admin")}
               reDirect={"/"}
             >
               <MyCities />
@@ -181,7 +171,7 @@ function App() {
           path="/myitineraries"
           element={
             <ProtectedRoute
-              isAllowed={!!user && user.role.includes("admin")}
+              isAllowed={!!user && user.role?.includes("admin")}
               reDirect={"/"}
             >
               <MyItinerary />
@@ -193,7 +183,7 @@ function App() {
           path="/newcity"
           element={
             <ProtectedRoute
-              isAllowed={!!user && user.role.includes("admin")}
+              isAllowed={!!user && user.role?.includes("admin")}
               reDirect={"/"}
             >
               <NewCity />
@@ -203,12 +193,12 @@ function App() {
         <Route
           path="/newitinerary"
           element={
-            // <ProtectedRoute
-            //   isAllowed={!!user && user.role.includes("admin")}
-            //   reDirect={"/"}
-            // >
-              <NewItinerary />
-            // </ProtectedRoute>
+            <ProtectedRoute
+              isAllowed={!!user && user.role?.includes("admin")}
+              reDirect={"/"}
+            >
+            <NewItinerary />
+            </ProtectedRoute>
           }
         />
 
@@ -216,7 +206,7 @@ function App() {
           path="/newhotel"
           element={
             <ProtectedRoute
-              isAllowed={!!user && user.role.includes("admin")}
+              isAllowed={!!user && user.role?.includes("admin")}
               reDirect={"/"}
             >
               <NewHotelPage />
@@ -224,55 +214,26 @@ function App() {
           }
         />
 
-        <Route path='/' exact element={<Home />}/>
-        <Route path='/cities' element={<Cities />}/>
-        <Route path='/hotels' element={<Hotels />}/>
-        <Route path='/hotel/:id' element={<HotelPage />}/>
-        <Route path='/signin' element={<SigninPage/>}/>
-        <Route path='*' element={<NotFoundPage />}/>
-        <Route path='/signUp' element={< SignUp/>}/>
-        <Route path='/city/:idCity' element={<DetailCity/>}/>
-        <Route path='/hotels/:idDetail' element={<HotelDetail/>}/>
-        <Route path='/profile' element={ <Profile/> } />
-        <Route path='/profile/:id' element={ <ProfileEdit/> } />
-        <Route path='/updatecity/:id' element={<UpdateCity/>}/>
-        <Route path='/updateitineraries/:id' element={<UpdateItinerary/>}/>
-
-        
-        <Route path='/mycities' element={
-          <ProtectedRoute isAllowed={!!user && user.role.includes('admin')} reDirect={'/'}>
-            <MyCities/>
+        <Route
+          path="/newreaction"
+          element={
+            <ProtectedRoute
+              isAllowed={!!user && user.role?.includes("admin")}
+              reDirect={"/"}
+            >
+              <NewReaction />
             </ProtectedRoute>
-            }/>
-          
-        <Route path='/myitineraries' element={
-        <ProtectedRoute isAllowed={!!user && user.role.includes('admin')} reDirect={'/'}>
-        <MyItinerary/>
-        </ProtectedRoute>
-        }/>
+          }
+        />
 
-        <Route path='/newcity' element={
-          <ProtectedRoute isAllowed={!!user && user.role.includes('admin')} reDirect={'/'}>
-        <NewCity/>
-        </ProtectedRoute>
-        }/>
-        <Route path='/newhotel' element={
-        <ProtectedRoute isAllowed={!!user && user.role.includes('admin')} reDirect={'/'}>
-        <NewHotelPage/>
-        </ProtectedRoute>
-        }/>
-        
-
-
-        <Route path='/hotelsAdmin' element={<MyHotel/>}/>
-        <Route path='/hotelsAdmin/:id' element={<HotelEdit/>}/>
-        <Route path='/showsUser' element={<MyShows/>}/>
-        <Route path='/showsUser/:id' element={<ShowEdit/>}/>
-        <Route path='/newShow' element={<NewShow/>}/>
-
+        <Route path="/hotelsAdmin" element={<MyHotel />} />
+        <Route path="/hotelsAdmin/:id" element={<HotelEdit />} />
+        <Route path="/showsUser" element={<MyShows />} />
+        <Route path="/showsUser/:id" element={<ShowEdit />} />
+        <Route path="/newShow" element={<NewShow />} />
       </Routes>
     </Layout>
   );
-}
 
+}
 export default App;

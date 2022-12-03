@@ -23,8 +23,10 @@ const commentReducer = createReducer(initialState, (builder) => {
 
         let newState = {
             ...state,
-            comments: response.data.response
+            comments: response.data.response,
+            
         }
+      
 
         return newState
     }).addCase(editComment.fulfilled, (state, action) => {

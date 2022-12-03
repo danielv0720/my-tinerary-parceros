@@ -52,10 +52,7 @@ const SignUp = () => {
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
-
       confirmButtonText: "Yes, registre it!",
-
-      confirmButtonText: "Yes, delete it!",
 
     }).then((result) => {
       if (result.isConfirmed) {

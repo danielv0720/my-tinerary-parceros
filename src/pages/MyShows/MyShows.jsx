@@ -10,23 +10,22 @@ import CardShow from './CardShow'
 
 
 const MyShows = () => {
+  const [ reload, setReload ] = useState(false)
+  console.log(reload)
+  const dispatch = useDispatch()
+  const showUser = useSelector(state => state.shows.showsByUser)
 
-    const [ reload, setReload ] = useState(false)
-
-    console.log(reload)
-
-    const dispatch = useDispatch()
     const idUser = localStorage.getItem('id')
     console.log( "My ID", idUser)
     const { getShowUser, deleteShow } = showsActions
     let token = localStorage.getItem('token')
 
-    const showUser = useSelector(state => state.shows.showsByUser)
 
     
     useEffect(()=>{
         dispatch(getShowUser(idUser))
-    }, [ reload, idUser])
+    }, [reload, idUser])
+
 
     let dataDelete = {
         id : "",

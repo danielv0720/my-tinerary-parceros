@@ -19,7 +19,7 @@ const HotelDetail = () => {
 
         axios.get(`${URL_API}/api/shows?hotelId=${idDetail}`)
             .then( res =>  setShows(res.data.res))
-    }, [])
+    }, [idDetail])
 
   /*   console.log(shows) */
 
@@ -27,7 +27,7 @@ const HotelDetail = () => {
     return (
         <div className='container-detail w-100 d-flex center align-center column gap-5' >
             <div className="card_detail--hotel shadow1">
-                <img src={hotel.photo} alt="image-hotel" className='img-hotel__detail' />
+                <img src={hotel.photo} alt={hotel.name} className='img-hotel__detail' />
                 <h3 className="title">{hotel.name}</h3>
                 <p className="paragraph"><b>Capacity: </b> {hotel.capacity} </p>
             </div> 

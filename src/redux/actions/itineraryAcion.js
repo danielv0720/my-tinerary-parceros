@@ -1,7 +1,6 @@
 import axios from "axios";
 import Swal from "sweetalert2";
 import { URL_API } from "../../api/url";
-import UpdateItinerary from "../../components/UpdateItinery/UpdateItinerary";
 import { types } from "../types/types"
 
 
@@ -12,8 +11,6 @@ import { types } from "../types/types"
 export const startSaveMyItineraries= (id) =>{
   return async (dispatch) =>{
     const myitineraries = (await axios.get(`${URL_API}/api/itineraries?userId=${id}`)).data.response;
-    console.log(id);
-    console.log(myitineraries);
     dispatch(saveMyItineraries(myitineraries))
   }
 }
@@ -30,7 +27,6 @@ export const saveMyItineraries = (myitineraries) => {
 // Middleware
 
 export const startDeleteMyItinerary = (id) => {
-  console.log(id);
   return async (dispatch) => {
     Swal.fire({
       title: 'Are you sure?',

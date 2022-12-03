@@ -22,7 +22,11 @@
 }
 
 .itineraies_class img{
-width: 200px;
-height: 100px;
+width: 300px;
+height: 200px;
 margin-left: 20px;
 }
+.itineraies_class{
+    margin-left: 20px;
+}
+
