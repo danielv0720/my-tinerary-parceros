@@ -7,11 +7,34 @@ body {
 .container-title {
   height: 100%;
   display: flex;
+  flex-direction: column;
   align-items: center;
   margin-right: -400px;
   z-index: 11;
   padding: 10px;
+  margin-top: 60px;
+}
 
+.nav-link {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 5px;
+}
+.container-calls {
+  padding: 30px;
+  width: 300px;
+  display: flex;
+  gap: 10px;
+}
+
+.paragraph-cover {
+  width: 70%;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+} 
+
+.title-cover {
+  font-size: 50px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .container-form {
@@ -78,6 +101,7 @@ margin-top: -50px;
 
 .home2 {
   height: 100vh;
+  background-color: rgb(3, 112, 112);
 }
 
 .cover {
@@ -106,6 +130,7 @@ margin-top: -50px;
 
 .title-nav {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 20px;
 }
 
 .nav-link:hover  {
@@ -211,7 +236,7 @@ margin-top: -50px;
 }
 
 .nav {
-  height: 40px;
+  height: 60px;
   width: 100%;
 }
 
@@ -400,13 +425,13 @@ margin-top: -50px;
     margin-left: 5px;
     margin-right: -646px;
   }
-  .title-cover {
+ /*  .title-cover {
     background-color: rgba(158, 228, 87, 0.521);
   }
 
   .paragraph-cover {
     background-color:  rgba(158, 228, 87, 0.521);
-  }
+  } */
 
  
  

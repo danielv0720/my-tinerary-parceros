@@ -24,7 +24,7 @@ const Navbar = () => {
             <div className="d-flex align-center logo-tittle-nav" >
                 <Link to='/' className='d-flex text-decoration__none align-center dark-light'>
                     <Link className='d-flex text-decoration__none align-center dark-light' to='/'><img src="https://cdn-icons-png.flaticon.com/512/169/169477.png?w=360" alt="logo" className='logo-nav' />
-                    <h4 className="title-nav" >My Itinerary</h4></Link>
+                    <h4 className="title-nav" >My Tinerary</h4></Link>
                 </Link>
             </div>
             <IoMenuOutline className='icon-menu' onClick={handleClickMenu} />
@@ -32,33 +32,33 @@ const Navbar = () => {
                 <li className="list-style__none nav-list">
                 </li>
                 <li className="list-style__none nav-list">
-                    <Link to='/' className="text-decoration__none p-20 text-center d-flex align-center fw-600 dark-light size-20p nav-link">Home</Link>
-                    <Link to='/cities' className="text-decoration__none p-20 text-center d-flex align-center fw-600 dark-light size-20p nav-link">Cities</Link>
-                   { isAuth && isAdmin && <Link to='/mycities' className="text-decoration__none p-20 text-center d-flex align-center fw-600 dark-light size-20p nav-link">My Cities</Link> }
-                    { isAuth && isAdmin && <Link to='/newcity' className="text-decoration__none p-20 text-center d-flex align-center fw-600 dark-light size-20p nav-link">New City</Link> }
-                   { isAuth && isAdmin && <Link to='/myitineraries' className="text-decoration__none p-20 text-center d-flex align-center fw-600 dark-light size-20p nav-link">My itineraries</Link> }
-                   { isAuth && isAdmin && <Link to='/newitinerary' className="text-decoration__none p-20 text-center d-flex align-center fw-600 dark-light size-20p nav-link">New itinerary</Link> }
+                    <Link to='/' className="text-decoration__none p-20 text-center d-flex align-center dark-light size-20p nav-link">Home</Link>
+                    <Link to='/cities' className="text-decoration__none p-20 text-center d-flex align-center  dark-light size-20p nav-link">Cities</Link>
+                   { isAuth && isAdmin && <Link to='/mycities' className="text-decoration__none p-20 text-center d-flex align-center  dark-light size-20p nav-link">My Cities</Link> }
+                    { isAuth && isAdmin && <Link to='/newcity' className="text-decoration__none p-20 text-center d-flex align-center  dark-light size-20p nav-link">New City</Link> }
+                   { isAuth && isAdmin && <Link to='/myitineraries' className="text-decoration__none p-20 text-center d-flex align-center  dark-light size-20p nav-link">My itineraries</Link> }
+                   { isAuth && isAdmin && <Link to='/newitinerary' className="text-decoration__none p-20 text-center d-flex align-center  dark-light size-20p nav-link">New itinerary</Link> }
                 </li>
                 <li className="list-style__none nav-list">
-                    <Link to='/hotels' className="text-decoration__none p-20 text-center d-flex align-center fw-600 dark-light size-20p nav-link">Hotels</Link>
-                    { isAuth && isAdmin && <Link to='/newhotel' className="text-decoration__none p-20 text-center d-flex align-center fw-600 dark-light size-20p nav-link">New Hotel</Link> }
+                    <Link to='/hotels' className="text-decoration__none p-20 text-center d-flex align-center dark-light size-20p nav-link">Hotels</Link>
+                    { isAuth && isAdmin && <Link to='/newhotel' className="text-decoration__none p-20 text-center d-flex align-center dark-light size-20p nav-link">New Hotel</Link> }
                 </li>
                 <li className="list-style__none nav-list">
-                { isAuth && isAdmin && <Link to='/myreactions' className="text-decoration__none p-20 text-center d-flex align-center fw-600 dark-light size-20p nav-link">My Reactions</Link> }
-                    { isAuth && isAdmin && <Link to='/newreaction' className="text-decoration__none p-20 text-center d-flex align-center fw-600 dark-light size-20p nav-link">New Reaction</Link> }
+                { isAuth && isAdmin && <Link to='/myreactions' className="text-decoration__none p-20 text-center d-flex align-center dark-light size-20p nav-link">My Reactions</Link> }
+                    { isAuth && isAdmin && <Link to='/newreaction' className="text-decoration__none p-20 text-center d-flex align-center dark-light size-20p nav-link">New Reaction</Link> }
                 </li>
                 <li className="list-style__none nav-list">
-                    { !isAuth && !isAdmin && <Link to='/signin' className="text-decoration__none p-20 text-center d-flex align-center fw-600  size-20p nav-link signin">Signin</Link> }
+                    { !isAuth && !isAdmin && <Link to='/signin' className="text-decoration__none p-20 text-center d-flex align-center  size-20p nav-link signin">Signin</Link> }
                 </li>
                 <li className="list-style__none nav-list">
-                    { !isAuth && !isAdmin && <Link to='/signUp' className="text-decoration__none p-20 text-center d-flex align-center fw-600  size-20p nav-link signUp">Sign Up</Link> }
+                    { !isAuth && !isAdmin && <Link to='/signUp' className="text-decoration__none p-20 text-center d-flex align-center  size-20p nav-link signUp">Sign Up</Link> }
                 </li>
             </ul>
             
             {isAuth && <div className='profile-container'>
-                <h4>{auth.name}</h4>
-                <img className='profile-picture' src={auth.photo} alt="" />
-            </div>}
+                            <h4>{auth.name}</h4>
+                        <img className='profile-picture' src={auth.photo} alt="" />
+                        </div>}
         </nav>
     )
 }

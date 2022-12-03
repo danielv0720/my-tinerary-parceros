@@ -21,7 +21,6 @@
 }
 .card1{
   box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
-  border-radius: 7px;
   margin-top: 5px;
   margin-bottom: 5px;
   width: 450px;
@@ -36,7 +35,7 @@
   height: 100%;
   display: flex;
   justify-content: center;
-  background: linear-gradient(rgba(53, 53, 99, 0.377), rgba(60, 60, 107, 0.459), rgba(96, 96, 141, 0.336));
+  background: linear-gradient(rgba(53, 53, 99, 0.158), rgba(60, 60, 107, 0.164), rgba(96, 96, 141, 0.164));
   position: absolute;
 }
 
