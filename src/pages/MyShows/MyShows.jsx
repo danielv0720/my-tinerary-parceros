@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import showsActions from '../../redux/actions/showActions'
 import { useSelector, useDispatch } from 'react-redux'
 import { Link as LinkRoute } from 'react-router-dom'
@@ -6,28 +6,48 @@ import { Link as LinkRoute } from 'react-router-dom'
 import '../../App.css'
 import '../MyShows/MyShows.css'
 
+import CardShow from './CardShow'
+
+
 const MyShows = () => {
+
+    const [ reload, setReload ] = useState(false)
+
+    console.log(reload)
 
     const dispatch = useDispatch()
     const idUser = localStorage.getItem('id')
+    console.log( "My ID", idUser)
     const { getShowUser, deleteShow } = showsActions
     let token = localStorage.getItem('token')
 
+    const showUser = useSelector(state => state.shows.showsByUser)
+
+    
     useEffect(()=>{
         dispatch(getShowUser(idUser))
+
     }, [idUser, dispatch, getShowUser])
 
-    const showUser = useSelector(state => state.shows.showsByUser)
+    }, [ reload, idUser])
+
+
     let dataDelete = {
         id : "",
         token: ""
     }
-    let handleDelete = (id, token) => {
-        dataDelete = {
+    let handleDelete = async (id, token) => {
+       try {
+         dataDelete = {
             id : id,
             token: token
-        }
-        dispatch(deleteShow(dataDelete))
+         }
+         await  dispatch(deleteShow(dataDelete))
+
+       } catch (error) {
+        console.log(error)
+       }
+
     }
 
   return (
@@ -36,22 +56,21 @@ const MyShows = () => {
     <LinkRoute to={`/newShow`}  className='btn-new_show' >New show</LinkRoute>
 
     <div className="cards">
+        <div className="container_scroll">
         {
-                showUser.map(show => {
-                    return <div className="card-citie-hotel shadow2">
-                                <img src={show.photo} alt={show.name} className="img-card" />
-                                <h4 className="title-card">
-                                    {show.name}
-                                </h4>
-                                <div className="container_btn">
-                                    <LinkRoute to={`/showsUser/${show._id}`} className="btn-edit" >Edit</LinkRoute>
-                                    <button className='btn_delete' onClick={() => handleDelete(show._id, token)} >Delete</button>
-                                </div>
-                            </div>
-                })
-    
-
+            showUser.map(show => 
+                    (<CardShow 
+                        photo={show.photo} 
+                        name={show.name} 
+                        id={show._id} 
+                        handle={() => handleDelete(show._id, token)}
+                        reload={ reload }
+                        setReload={setReload}
+                        token={token}
+                    />
+                    ))
         }
+        </div>
     </div>
 </div>
   )

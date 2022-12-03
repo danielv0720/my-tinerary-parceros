@@ -14,6 +14,7 @@ const NewShow = () => {
     const [price, setPrice] = useState(0)
     const [description, setDescription] = useState('')
 
+    const userId = localStorage.getItem('id')
     
     let handleCreate = (e) => {
         e.preventDefault()
@@ -24,6 +25,7 @@ const NewShow = () => {
             date: date,
             price: price,
             description: description,
+            userId: userId
         }
 
         let token =localStorage.getItem('token')

@@ -1,33 +1,70 @@
 .container-admin {
-    padding: 30px 0;
+    padding: 50px 0;
 }
 
-.title-admin {
+.title-card {
     font-family: sans-serif;
 }
+
+
 
 .cards {
     margin-top: 50px;
     width: 100%;
-    display: grid;
+    display: flex;
+    flex-direction: column;
     gap: 10px;
-    grid-auto-rows: 22rem;
-    place-content: center;
+    align-items: center;
 }
 
+.container_scroll {
+    height: auto;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.container_scroll::-webkit-scrollbar {
+    width: 9px;
+    background-color: cornflowerblue;
+}
+.container_scroll::-webkit-scrollbar-thumb {
+    background-color: rgba(61, 86, 87, 0.603);
+    width: 3px;
+    height: 15px;
+}
 .container-btn {
     display: flex;
-    padding: 15px;
+    /*  padding: 15px; */
 }
 
-.btn-edit {
-    padding: 5px;
+.card-show-show {
+    /* height: 350px; */
+    height: auto;
+    width: 450px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+    margin-bottom: 0;
+    position: relative;
+}
+.img_card_show {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+.btn_edit {
     background-color: cadetblue;
     color: aliceblue;
     text-decoration: none;
     font-weight: 600;
-    width: 20px;
-    height: 15px;
+    width: 50px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .btn_delete {
@@ -36,8 +73,9 @@
     border: none;
     cursor: pointer;
     width: 80px;
-    height: 40px;
+    height: 25px;
 }
+
 
 .btn-new_show {
     width: 90px;
@@ -51,6 +89,22 @@
     justify-content: center;
 }
 
+/* .container_comment {
+  
+} */
+
+.btn_toggle_comment {
+    width: 400px;
+    background: linear-gradient( rgb(31, 108, 128), rgb(17, 116, 141), rgb(4, 93, 116));
+    color: aliceblue;
+    font-weight: 600;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    height: 25px;
+    border: none;
+    cursor: pointer;
+}
+
+/* 
 @media screen and (min-width: 768px){
     .cards {
         grid-template-columns: repeat(2, 1fr);
@@ -67,4 +121,4 @@
     .cards {
         grid-template-columns: repeat(4, 1fr);
     }
-}
+} */

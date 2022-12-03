@@ -1,0 +1,92 @@
+.container-comment {
+    width: 450px;
+    height: 150px;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+.list_container {
+    display: flex;
+    justify-content: space-around;
+    background-color: darkcyan;
+    width:inherit;
+    align-items: center;
+    border-bottom: solid rgb(14, 95, 170) 1px;
+    height: clamp(30px, auto, 130px);
+    padding: 4px;
+    transition: all 0.20ms;
+}
+
+.list_container:hover {
+    background-color: rgba(0, 139, 139, 0.904);
+}
+
+.container-comment::-webkit-scrollbar {
+    width: 9px;
+    background-color: cornflowerblue;
+}
+.container-comment::-webkit-scrollbar-thumb {
+    background-color: rgba(61, 86, 87, 0.603);
+    width: 3px;
+    height: 15px;
+}
+
+.img-comment {
+    width: 40px;
+    height: 40px;
+    margin-right: 30px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.text-comment {
+    font-weight: 500;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container-icons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.btn-comment-item {
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.edit-comment{ 
+    color: rgb(52, 52, 105);
+    font-size: 20px;
+}
+.edit-delete{ 
+    color: rgb(196, 0, 26);
+    font-size: 20px;
+}
+
+.add-comment {
+    width: 450px;
+    border: solid 2px black;
+    padding: 4px;
+    cursor: pointer;
+    background-color: rgb(13, 161, 117);
+    color: wheat;
+    font-weight: 600;
+} 
+.container-form-comments {
+    display: flex;
+    flex-direction: column;
+}
+
+.comment-text-date {
+    display: flex;
+    flex-direction: column;
+}
+
+.date-comment {
+    margin-bottom: 4px;
+    font-size: 12px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: rgb(46, 57, 58);
+}
