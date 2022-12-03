@@ -49,43 +49,6 @@ import ShowEdit from "./pages/ShowEdit/ShowEdit";
 import Profile from "./pages/Profile/Profile";
 import ProfileEdit from "./pages/ProfileEdit/ProfileEdit";
 
-
-
-/* import { useSelector } from "react-redux"; */
-// Layout
-/* 
-import Cities from './pages/Cities'; */
-/* import Hotels from './pages/Hotels';//  */
-/* import Layout from './layout/Layout'; */
-/* import NotFoundPage from './pages/NotFoundPage' */
-
-/* import SignUp from './pages/SignUp'; */
-/* import SigninPage from './pages/SigninPage'; */
-
-/* import { HotelPage } from './components/DescriptionHotel/HotelPage';
-import NewHotelPage from './pages/NewHotelPage';
-
-import DetailCity  from './pages/DetailCity';
-import NewCity from './pages/NewCity/NewCity';
-import MyCities from './pages/MyCities';
-import MyItinerary from './pages/MyItinerary';
-import HotelDetail from './pages/HotelDetail/HotelDetail';
-import { useEffect, useState } from 'react';
-import { startSaveCities, startSaveMyCities } from './redux/actions/cityAction';
-import { useDispatch } from 'react-redux';
-import UpdateCity from './components/UpdateCity/UpdateCity';
-import { startSaveMyItineraries } from './redux/actions/itineraryAcion';
-import UpdateItinerary from './components/UpdateItinery/UpdateItinerary';
- */
-/* import { ProtectedRoute } from './components/ProtectRoute/ProtectedRoute'; */
-
-
-
-
-
-
-
-
 import NewShow from "./pages/NewShow/NewShow";
 import Myreactions from "./pages/Myreactions";
 import { startSaveMyReactions } from "./redux/actions/reactionAction";
