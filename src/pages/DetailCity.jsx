@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { URL_API } from "../api/url";
 import { Itinerary } from "../components/Itinerary/Itinerary";
-import { useDispatch, useSelector } from 'react-redux';
 
 import "./DetailCity.css";
 import "../App.css";

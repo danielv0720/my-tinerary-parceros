@@ -17,12 +17,8 @@ const store = configureStore({
         itineraries: itinerariesReducer,
         shows: showsReducer,
         users: userReducer,
-
+        comments: commentReducer,
         reactions: reactionReducer
-
-        comments: commentReducer
-
-
     }
 })
 

@@ -88,5 +88,6 @@ export default function NewReaction() {
         <h2>Reaction Created Dinamic</h2>
       </div>
     </div>
+
   );
 }
