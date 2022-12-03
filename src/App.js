@@ -41,7 +41,6 @@ import userActions from "./redux/actions/userAction";
 import Swal from "sweetalert2";
 
 import NewItinerary from "./components/NewItinerary/NewItinerary.jsx";
-import NewReaction from "./components/Reaction/Reaction.jsx";
 
 import MyHotel from "./pages/MyHotel/MyHotel";
 import HotelEdit from "./pages/HotelEdit/HotelEdit";
@@ -50,7 +49,7 @@ import ShowEdit from "./pages/ShowEdit/ShowEdit";
 import Profile from "./pages/Profile/Profile";
 import ProfileEdit from "./pages/ProfileEdit/ProfileEdit";
 
-import NewItinerary from "./pages/NewItinerary/NewItinerary";
+
 
 /* import { useSelector } from "react-redux"; */
 // Layout
@@ -80,36 +79,24 @@ import UpdateItinerary from './components/UpdateItinery/UpdateItinerary';
  */
 /* import { ProtectedRoute } from './components/ProtectRoute/ProtectedRoute'; */
 
-import MyHotel from './pages/MyHotel/MyHotel';
-import HotelEdit from './pages/HotelEdit/HotelEdit';
-import MyShows from './pages/MyShows/MyShows';
-import ShowEdit from './pages/ShowEdit/ShowEdit';
-import Profile from './pages/Profile/Profile';
-import userActions from './redux/actions/userAction';
-import ProfileEdit from './pages/ProfileEdit/ProfileEdit';
+
+
+
+
+
+
 
 import NewShow from "./pages/NewShow/NewShow";
 import Myreactions from "./pages/Myreactions";
 import { startSaveMyReactions } from "./redux/actions/reactionAction";
+import NewReaction from "./components/Newreaction/NewReaction";
 
 function App() {
   const user = useSelector(state => state.users)
   const navigate = useNavigate()
   const { reEnter, logout } = userActions;
-
   const dispatch = useDispatch();
-
   let token = localStorage.getItem("token");
-
-
-
-function App() {
-  const { reEnter } = userActions
-  
-  const dispatch = useDispatch();
-  /* let token = localStorage.getItem('token')
-  let userState = useSelector(state => state.users) */
-
 
   useEffect(() => {
     console.log("TOKEN APP", token);
@@ -247,6 +234,6 @@ function App() {
       </Routes>
     </Layout>
   );
-}
 
+}
 export default App;

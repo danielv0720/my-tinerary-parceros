@@ -1,7 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { startUpdateReactions } from "../redux/actions/reactionAction";
-import { deleteReactions } from "../redux/reducers/reactionReducer";
+import { startUpdateMyReactions } from "../redux/actions/reactionAction";
 
 const Myreactions = () => {
   const reactions = useSelector((state) => state.reactions.myReactions);
@@ -22,7 +21,7 @@ const Myreactions = () => {
               <button
                 onClick={() => {
                   dispatch(
-                    startUpdateReactions(
+                    startUpdateMyReactions(
                       r.itinerary[0]._id,
                       r.reaction.name,
                       'remove',
@@ -41,7 +40,7 @@ const Myreactions = () => {
               <button
                 onClick={() => {
                   dispatch(
-                    startUpdateReactions(
+                    startUpdateMyReactions(
                       r.itinerary[0]._id,
                       r.reaction.name,
                       'remove',
@@ -60,7 +59,7 @@ const Myreactions = () => {
               <button
                 onClick={() => {
                   dispatch(
-                    startUpdateReactions(
+                    startUpdateMyReactions(
                       r.itinerary[0]._id,
                       r.reaction.name,
                       'remove',
@@ -79,7 +78,7 @@ const Myreactions = () => {
               <button
                 onClick={() => {
                   dispatch(
-                    startUpdateReactions(
+                    startUpdateMyReactions(
                       r.itinerary[0]._id,
                       r.reaction.name,
                       'remove',

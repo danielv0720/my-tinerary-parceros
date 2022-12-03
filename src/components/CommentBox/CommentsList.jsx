@@ -29,7 +29,7 @@ const CommentsList = (props) => {
 
 
   const user = useSelector(state => state.users)
-
+console.log(user.token);
   let addCommentHandle = async (e) => {
       e.preventDefault()
     let data = {
