@@ -45,26 +45,31 @@ const userReducer = createReducer( initialState, (builder) => {
         }
     })
     .addCase(reEnter.fulfilled, (state, action) => {
-      const { success, res } = action.payload;
-      if (success) {
-        let { user } = res;
-        let newState = {
-          ...state,
-          name: user.name,
-          photo: user.photo,
-          logged: user.logged,
-          role: user.role,
-          id: user.id,
-        };
-        return newState;
-      } else {
-        let newState = {
-          ...state,
-          message: res,
-        };
-        return newState;
+      const { success, res } = action.payload
+      if(success){
+          let { user, token } = res
+          let newState = {
+              ...state,
+              name: user.name,
+              photo: user.photo,
+              id: user.id,
+              logged: user.logged,
+              token: token,
+              role: user.role
+          }
+          return newState
+      }else {
+          let newState = {
+              ...state,
+              message: res
+          }
+          return newState
       }
     })
+
+
+
+    
     .addCase(logout.fulfilled, (state, action) => {
       const { success } = action.payload;
       if (success) {
