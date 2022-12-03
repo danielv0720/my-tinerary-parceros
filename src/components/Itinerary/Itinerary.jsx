@@ -19,13 +19,23 @@ const reactionsFilter = reactionState.find(e => e.id === id)?.reactions
 
   return (
     <>
+    <div className='log_container'>
       <li key={item._id}>{item.name}</li>
+      <div className='log_itenerary'>
       <img src={item.photo[0]} alt="imagen" />
+
+      </div>
+      <div className='bt-reaction'>
       {reactionsFilter && 
         reactionsFilter.map(r => (
-          <Reaction key={r._id} iteneraryId={id} nombre={r.name} total={r.userId.length}></Reaction>
+          <Reaction  key={r._id} iteneraryId={id} nombre={r.name} total={r.userId.length}></Reaction>
+          
         ))
       }
+
+      </div>
+      </div>
+
     </>
 )
 }

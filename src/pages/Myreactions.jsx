@@ -9,16 +9,18 @@ const Myreactions = () => {
   console.log(reactions);
   return (
     <>
-      {reactions.map((r) => (
-        <div>
-          <h4>{r.itinerary[0].name}</h4>
 
-          <img className="image" src={r.itinerary[0].photo[0]} />
+      {reactions.map((r) => (
+        
+        <div className="card-citie-hotel shadow1 cardmy">
+          <h4>{r.itinerary[0].name }</h4>
+
+          <img className="img-card" src={r.itinerary[0].photo[0]} />
 
           {r.reaction.name === "like" && (
             <div style={{ color: "blue" }}>
-              {r.reaction.name}
-              <button
+              <img className="log_reaction" src={r.reaction.icon } alt="" />
+              <button className="btn-mycities-delet"
                 onClick={() => {
                   dispatch(
                     startUpdateMyReactions(
@@ -30,14 +32,17 @@ const Myreactions = () => {
                   );
                 }}
               >
-                Eliminar reaccion
+                Eliminar 
               </button>
             </div>
           )}
+
+
           {r.reaction.name === "love" && (
             <div style={{ color: "red" }}>
-              {r.reaction.name}
-              <button
+              <div>
+              <img className="log_reaction" src={r.reaction.icon } alt="" />
+              <button className="btn-mycities-delet"
                 onClick={() => {
                   dispatch(
                     startUpdateMyReactions(
@@ -49,14 +54,18 @@ const Myreactions = () => {
                   );
                 }}
               >
-                Eliminar reaccion
+                Eliminar 
               </button>
+              </div>
+
             </div>
+            
           )}
+          
           {r.reaction.name === "dislike" && (
             <div style={{ color: "gray" }}>
-              {r.reaction.name}
-              <button
+             <img className="log_reaction" src={r.reaction.icon } alt="" />
+              <button className="btn-mycities-delet"
                 onClick={() => {
                   dispatch(
                     startUpdateMyReactions(
@@ -68,14 +77,14 @@ const Myreactions = () => {
                   );
                 }}
               >
-                Eliminar reaccion
+                Eliminar 
               </button>
             </div>
           )}
           {r.reaction.name === "surprise" && (
             <div style={{ color: "green" }}>
-              {r.reaction.name}
-              <button
+              <img className="log_reaction" src={r.reaction.icon } alt="" />
+              <button className="btn-mycities-delet"
                 onClick={() => {
                   dispatch(
                     startUpdateMyReactions(
@@ -87,7 +96,7 @@ const Myreactions = () => {
                   );
                 }}
               >
-                Eliminar reaccion
+                Eliminar 
               </button>
             </div>
           )}
