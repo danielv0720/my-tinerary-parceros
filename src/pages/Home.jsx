@@ -16,20 +16,6 @@ const Home = () => {
      
     <div className="w-100 h-100 top-0">
     <Header />
-
-      <div className="container-home1 grow">
-        <h2 className="size-35p title-question" >What are you looking for?</h2>
-        <div className="buttons-redirect d-flex center row gap-15">
-          <div className="img-btn d-flex column gap-5">
-            <img className="img-link" src={img1} alt="cities"/>
-            <CallToAction path="/cities" message="Go to Cities" />
-          </div>
-          <div className="img-btn d-flex column gap-5">
-            <img className="img-link" src={img2} alt="hotels"/>
-            <CallToAction path="/hotels" message="Go to Hotels" />
-          </div>
-        </div>
-      </div>
     </div>
     <div className="home2 w-100 d-flex center align-center hidden">
         <Home2/>

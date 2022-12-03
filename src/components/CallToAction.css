@@ -1,0 +1,20 @@
+.call-to-action {
+    text-decoration: none;
+    padding: 10px 5px;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+    font-weight: 600;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.bg-blue {
+    background-color: royalblue;
+    color: whitesmoke;
+}
+
+.white-border_blue {
+    background-color: white;
+    border: solid 3px royalblue;
+}
