@@ -53,7 +53,7 @@ import NewShow from "./pages/NewShow/NewShow";
 import Myreactions from "./pages/Myreactions";
 import { startSaveMyReactions } from "./redux/actions/reactionAction";
 import NewReaction from "./components/Newreaction/NewReaction";
-
+/*  Hago este comentario paa pushear debido a un error   */
 function App() {
   const user = useSelector(state => state.users)
   const navigate = useNavigate()
