@@ -1,10 +1,11 @@
 import React from 'react'
+import './NewHotel.css'
 
 export default function NewHotelButton() {
 
 
   return (
 
-    <button className="" type='submit' >create</button>
+    <button className="btn-create-show" type='submit' >create</button>
   )
 }

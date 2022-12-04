@@ -39,7 +39,11 @@ const HotelEdit = () => {
             city: city
         }
 
-        axios.patch(`${URL_API}/api/hotels/${id}`, valueInputs)
+        let token = localStorage.getItem('token')
+
+        let headers = { headers: { 'Authorization' : `Bearer ${token}` } }
+
+        axios.patch(`${URL_API}/api/hotels/${id}`, valueInputs, headers)
             .then(res => {
                 console.log(res)
                 if(res.data.success){

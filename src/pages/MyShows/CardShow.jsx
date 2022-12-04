@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link as LinkRoute } from 'react-router-dom'
 import './MyShows.css'
 import '../../App.css'
@@ -11,6 +11,9 @@ const CardShow = (props) => {
 
     const { photo, name, id, handle, token, reload, setReload} = props
     const [ open, setOpen ] = useState(false)
+
+    useEffect(()=> {
+    },[open])
 
     return (
         <>
