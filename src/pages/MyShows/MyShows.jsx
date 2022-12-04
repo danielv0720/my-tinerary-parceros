@@ -50,7 +50,7 @@ const MyShows = () => {
     <h1 className='title-admin' >My Shows</h1>
     <LinkRoute to={`/newShow`}  className='btn-new_show' >New show</LinkRoute>
 
-    <div className="cards">
+    <div className="cards__show">
         <div className="container_scroll">
         {
             showUser.map(show => 

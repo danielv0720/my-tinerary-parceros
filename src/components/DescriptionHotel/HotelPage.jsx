@@ -21,7 +21,7 @@ export const HotelPage = () => {
     <>
     <div>
     <div className="description_container">
-      <img className="img_drescription" alt='' src={hotel.photo[2]}></img>
+      <img className="img_drescription" alt='' src={hotel.photo[0]}></img>
       <div className="">
       <h3> <span>Name:</span> {hotel.name}</h3>
       <ul className="">

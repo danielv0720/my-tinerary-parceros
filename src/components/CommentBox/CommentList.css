@@ -40,8 +40,9 @@
 }
 
 .text-comment {
-    font-weight: 500;
+    font-weight: 600;
     font-family: Arial, Helvetica, sans-serif;
+    max-width: 200px;
 }
 
 .container-icons {
@@ -71,9 +72,12 @@
     padding: 4px;
     cursor: pointer;
     background-color: rgb(13, 161, 117);
-    color: wheat;
-    font-weight: 600;
+    color: rgb(255, 255, 255);
+    font-weight: 700;
+    text-transform: uppercase;
 } 
+
+
 .container-form-comments {
     display: flex;
     flex-direction: column;
@@ -89,4 +93,15 @@
     font-size: 12px;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     color: rgb(46, 57, 58);
+}
+
+.text-write {
+    border: none;
+    outline: none;
+}
+
+.text-write::placeholder {
+    font-size: 17px;
+    font-family: sans-serif;
+    font-weight: 600;
 }

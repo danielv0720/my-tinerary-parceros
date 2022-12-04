@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState} from 'react'
 import './CommentList.css'
 import commentActions from '../../redux/actions/commentsAction';
 import { AiOutlineEdit, AiFillDelete } from "react-icons/ai";
@@ -8,7 +8,7 @@ import Swal from 'sweetalert2';
 const CommentsList = (props) => {
 
   const [value, setValue] = useState("")
- 
+
 
   const { showId } = props 
    
@@ -69,8 +69,7 @@ console.log(user.token);
         }
         console.log(dataComment)
        await dispatch(editComment(dataComment))
-     
-       
+
       }
      
     }
@@ -134,6 +133,7 @@ console.log(user.token);
           placeholder='Add a comment'
           onChange={(e) => setValue(e.target.value)} 
           value={value}
+          className="text-write"
           >
         </textarea>
         <button type='submit' className='add-comment' > Send comment </button>
