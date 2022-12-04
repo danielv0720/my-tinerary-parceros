@@ -27,6 +27,21 @@ export default function NewHotelCreate() {
     capacity: 0,
 
   }
+
+
+  let token = localStorage.getItem('token')
+
+  /*  axios({
+      method: 'post',
+      url: `${URL_API}/api/hotels`,
+      data: data_hotel,
+    })
+    .then(res => console.log(res))
+    .catch(err => console.log(err))
+ */
+
+    let headers = { headers:{ 'Authorization': `Bearer ${token}`} }
+    let idUser = localStorage.getItem('id')
   const handleSubmit = (e) => {
     e.preventDefault()
 
@@ -35,20 +50,15 @@ export default function NewHotelCreate() {
       photo: photo,
       capacity: capacity,
       cityId: city,
-      userId: "636d864fec3e352a19f44e9f"
+      userId: idUser
     }
 
 
-    axios({
-      method: 'post',
-      url: `${URL_API}/api/hotels`,
-      data: data_hotel,
-    })
-    .then(res => console.log(res))
-    .catch(err => console.log(err))
+   
 
 
-    axios.post(`${URL_API}/api/hotels`, data_hotel)
+
+    axios.post(`${URL_API}/api/hotels`, data_hotel, headers)
       .then(res => {
         console.log(res.data.success)
         console.log(res.data.message)
@@ -95,8 +105,11 @@ export default function NewHotelCreate() {
 
 
   return (
-    <>
+    <div className='container-new-hotel' >
+
+
       <form className='create_form' onSubmit={handleSubmit}>
+        <h2>Create new hotel</h2>
         <NewHotel
           onChange={(e) => setName(e.target.value)}
           placeholder='Holtel Name' />
@@ -115,6 +128,6 @@ export default function NewHotelCreate() {
         <NewHotelButton
         />
       </form>
-    </>
+    </div>
   )
 }

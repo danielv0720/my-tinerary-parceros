@@ -10,7 +10,7 @@ import '../../components/Card/Card.css'
 
 const MyHotel = () => {
     const dispatch = useDispatch()
-    const idAdmin = '636e8c06ce259ab0ebdb9813'
+    const idAdmin = localStorage.getItem('id')
     const { getHotelAdmin, deleteHotel } = hotelsAction
     useEffect(() => {
         dispatch(getHotelAdmin(idAdmin))
@@ -25,6 +25,8 @@ const MyHotel = () => {
     return (
         <div className=' container-admin d-flex align-center w-100 column grow'>
             <h1 className='title-admin' >My Hotels</h1>
+
+            <LinkRoute to='/newhotel'  className='btn-new-hotel' > New Hotel </LinkRoute>
 
             <div className="cards">
                 {
