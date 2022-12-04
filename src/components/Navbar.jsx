@@ -59,6 +59,8 @@ const Navbar = () => {
                             <h4>{auth.name}</h4>
                         <img className='profile-picture' src={auth.photo} alt="" />
                         </div>}
+
+                        
         </nav>
     )
 }

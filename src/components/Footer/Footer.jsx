@@ -6,7 +6,7 @@ export default function Footer() {
   return (
 
     <footer className='bg-footer'>
-      <h3 >My Itinerary everything you need for your trip</h3>
+      <h3  className='text-footer' >My Itinerary everything you need for your trip</h3>
       <div className='linksFooter'>
         <a className='linksFooter' href="/">Home</a>
         <a className='linksFooter' href="/cities">Cities</a>

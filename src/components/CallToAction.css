@@ -14,7 +14,17 @@
     color: whitesmoke;
 }
 
+.bg-blue:hover {
+    background-color: rgb(77, 92, 139);
+}
+
 .white-border_blue {
     background-color: white;
     border: solid 3px royalblue;
+}
+
+.white-border_blue:hover{
+    background-color: darkcyan;
+    color: azure;
+    border: darkslateblue;
 }

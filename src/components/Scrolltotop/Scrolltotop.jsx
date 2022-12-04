@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react'
+import { FaArrowCircleUp } from "react-icons/fa";
+
 
 export default function Scrolltotop() {
 
@@ -24,15 +26,16 @@ const scrollUp=() =>{
   return (
   <>
     {scrolltotop &&(
-      <button style={{
+      <FaArrowCircleUp style={{
         position: "fixed",
         bottom: "50px",
         right: "50px",
         height: "50px",
         width:"50px",
-        fontSize:"50px"
+        fontSize:"50px",
+        cursor: "pointer"
       }}
-      onClick={scrollUp}>^</button>
+      onClick={scrollUp}/> 
     )}
 </>
     )

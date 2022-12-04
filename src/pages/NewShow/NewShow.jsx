@@ -13,9 +13,18 @@ const NewShow = () => {
     const [date, setDate] = useState('')
     const [price, setPrice] = useState(0)
     const [description, setDescription] = useState('')
+    const [hotel, setHotel] = useState('')
 
     const userId = localStorage.getItem('id')
-    
+
+
+/* 
+    const valueHotel = {
+            input: hotel,
+            select: ""
+    } */
+
+
     let handleCreate = (e) => {
         e.preventDefault()
 
@@ -25,6 +34,7 @@ const NewShow = () => {
             date: date,
             price: price,
             description: description,
+            hotelId: hotel,
             userId: userId
         }
 
@@ -90,6 +100,13 @@ const NewShow = () => {
             placeholder='Description' 
             className='input-hotel' 
             onChange={(e) => setDescription(e.target.value)}  
+        />
+        <input type="text" 
+            value={hotel} 
+            name="Hotel" 
+            placeholder='Hotel' 
+            className='input-hotel' 
+            onChange={(e) => setHotel(e.target.value)}  
         />
         <div className="container_submit">
             <button type="submit" className='btn_submit' >Update</button>

@@ -17,6 +17,7 @@ const ShowEdit = () => {
     const [date, setDate] = useState('')
     const [price, setPrice] = useState(0)
     const [description, setDescription] = useState('')
+/*     const [hotel, setHotel] = useState('') */
 
     useEffect(()=>{
         axios.get(URL_API+'/api/shows/'+id)
@@ -39,7 +40,7 @@ const ShowEdit = () => {
             description: description,
             photo: photo,
             price: price,
-            date: date,
+            date: date
         }
 
         let token =localStorage.getItem('token')
@@ -101,6 +102,13 @@ const ShowEdit = () => {
             className='input-hotel' 
             onChange={(e) => setDescription(e.target.value)}  
         />
+     {/*    <input type="text" 
+            value={hotel} 
+            name="Hotel" 
+            placeholder='Hotel' 
+            className='input-hotel' 
+            onChange={(e) => setHotel(e.target.value)}  
+        /> */}
         <div className="container_submit">
             <button type="submit" className='btn_submit' >Update</button>
         </div>

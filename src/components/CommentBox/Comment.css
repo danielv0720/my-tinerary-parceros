@@ -3,6 +3,6 @@
     color: aliceblue;
     font-weight: 600;
     font-family: Georgia, 'Times New Roman', Times, serif;
-    width: inherit;
+    /* width: inherit; */
     width: 450px;
 }

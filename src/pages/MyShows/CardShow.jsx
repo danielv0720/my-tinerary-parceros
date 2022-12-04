@@ -14,9 +14,9 @@ const CardShow = (props) => {
 
     return (
         <>
-            <div className="card-show-show shadow3">
+            <div className="card-show-show shadow1">
                 <img src={photo} alt={name} className="img_card_show" />
-                <h4 className="title-card">
+                <h4 className="title-card-show">
                     {name}
                 </h4>
                 <div className="container_btn">
@@ -28,8 +28,8 @@ const CardShow = (props) => {
                                         }} >Delete</button>
                 </div>
                 <div className='container_comment' >
-                     <button className='btn_toggle_comment'  onClick={()=> setOpen(!open)}  >comments</button>
-                    {  open? <CommentsList showId={id} /> : ''  }
+                     <button className='btn_toggle_comment'  onClick={()=> setOpen(!open)}  >Comments</button>
+                    {  open? <CommentsList showId={id}/> : ''  }
                 </div>
             
             </div>

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import axios from "axios"
 import '../HotelDetail/HotelDetail.css'
+import CardShow from '../../pages/MyShows/CardShow'
 
 import '../../App.css'
 import { URL_API } from '../../api/url'
@@ -37,9 +38,7 @@ const HotelDetail = () => {
             </div>
             <div className="cards-shows">
                 { 
-                    shows.map(show => {
-                         return <Card key={show._id} img={show.photo} name={show.name} />
-                    } )
+                    shows.map(show =>(<CardShow  id={show._id} photo={show.photo} name={show.name} />))
                 }
             </div>
         </div>

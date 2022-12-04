@@ -1,4 +1,5 @@
 import React from 'react'
+import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 
 export default function Desplazar(props) {
   let { next } = props
@@ -8,9 +9,9 @@ export default function Desplazar(props) {
   return (
     <>
       <div className='container_flecha1' >
-        <img className='flechai' src="images/flechaizq.png" alt="flechaPrev" onClick={prev} />
+        <FaAngleLeft className='flechai'  alt="flechaPrev" onClick={prev} />
         {props.children}
-        <img className='flechad' src="images/flechader.png" alt="flechaNext" onClick={next} />
+        <FaAngleRight className='flechad'  alt="flechaNext" onClick={next} />
       </div>
     </>
   )
