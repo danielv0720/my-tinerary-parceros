@@ -57,9 +57,7 @@ const Myreactions = () => {
                 Eliminar 
               </button>
               </div>
-
             </div>
-            
           )}
           
           {r.reaction.name === "dislike" && (
